@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/cache 
+		http://www.springframework.org/schema/cache/spring-cache.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+   <!-- 读取数据库配置文件 -->
+   	<bean id="jdbcConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
+   <!-- 配置数据库连词 -->
+   	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		destroy-method="close">
+		<!-- 地址 -->
+		<property name="url">
+			<value>${connection.url}</value>
+		</property>
+		<!-- 驱动地址 -->
+		<property name="driverClassName">
+			<value>${connection.driverClassName}</value>
+		</property>
+		<!-- 用户名 -->
+		<property name="username">
+			<value>${connection.username}</value>
+		</property>
+		<!-- 密码 -->
+		<property name="password">
+			<value>${connection.password}</value>
+		</property>
+		<!-- 连接池是否注册JMX代理,默认true -->
+		<property name="jmxEnabled">
+			<value>${connection.jmxEnabled}</value>
+		</property>
+		<!-- 空闲时是否进行验证，检查对象是否有效，默认为false -->
+		<property name="testWhileIdle">
+			<value>${connection.testWhileIdle}</value>
+		</property>
+		<!-- 取得对象时是否进行验证，检查对象是否有效，默认为false -->
+		<property name="testOnBorrow">
+			<value>${connection.testOnBorrow}</value>
+		</property>
+		<!-- 验证间隔,避免额外验证,在此时间内若通过验证,则再次请求不会验证,默认30000 (30秒) -->
+		<property name="validationInterval">
+			<value>${connection.validationInterval}</value>
+		</property>
+		<!-- 返回对象时是否进行验证，检查对象是否有效，默认为false -->
+		<property name="testOnReturn">
+			<value>${connection.testOnReturn}</value>
+		</property>
+		<!-- 验证连接是否成功, SQL SELECT 指令至少要返回一行 -->
+		<property name="validationQuery">
+			<value>${connection.validationQuery}</value>
+		</property>
+		<!-- 多久检查一次空闲链接,并且验证空闲链接,不能设置小于1,默认5000 (5 秒) -->
+		<property name="timeBetweenEvictionRunsMillis">
+			<value>${connection.timeBetweenEvictionRunsMillis}</value>
+		</property>
+		<!-- 可以从对象池中取出的对象最大个数，为0则表示没有限制，默认为100 -->
+		<property name="maxActive">  
+			<value>${connection.maxActive}</value>
+		</property>
+		<!-- 创建连接池时初始化连接数,默认10 -->
+		<property name="initialSize">
+			<value>${connection.initialSize}</value>
+		</property>
+		<!-- 无链接可用时最大等待秒数,超过时间会丟出错误信息  默认30000 (30 秒) -->
+		<property name="maxWait">
+			<value>${connection.maxWait}</value>
+		</property>
+		<!-- 几秒后会自我中断 默认 60 (60 秒) -->
+		<property name="removeAbandonedTimeout">
+			<value>${connection.removeAbandonedTimeout}</value>
+		</property> 
+		<!-- 空闲链接验证时间  默认 60 (60 秒) -->
+		<property name="minEvictableIdleTimeMillis">
+			<value>${connection.minEvictableIdleTimeMillis}</value>
+		</property>
+		<!-- 最小空间连接数 一般与初始化连接数相等 默认10个 -->
+		<property name="minIdle">
+			<value>${connection.minIdle}</value>
+		</property>
+		<!-- 最大空间连接数 一般与初始化连接数相等 默认10个 -->
+		<property name="maxIdle">
+			<value>${connection.maxIdle}</value>
+		</property>
+		
+		<!-- 是否记录中断事件, 默认为 false -->
+		<property name="logAbandoned">
+			<value>${connection.logAbandoned}</value>
+		</property>
+		<!-- 是否自我中断, 默认是 false -->
+		<property name="removeAbandoned">
+			<value>${connection.removeAbandoned}</value>
+		</property>
+		<!-- jdbc 拦截器 -->
+		<property name="jdbcInterceptors">
+			<value>${connection.jdbcInterceptors}</value>
+		</property>
+	</bean>
+	
+	<!-- 配置sessionFactory并管理MyBaits -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="configLocation" value="classpath:mybatis-config.xml" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 进行事物管理 -->
+	<bean id="transactionManager"  
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean>
+    
+    <!-- 开始事务处理注解 -->
+    <tx:annotation-driven transaction-manager="transactionManager" />
+    
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="annotationClass" value="org.springframework.stereotype.Repository" />
+		<property name="basePackage" value="com.he.kcgl.**.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+	
+	<context:component-scan base-package="com.he.kcgl.**.service" />
+	
+	<!-- 配置springContext单例模式-->
+	<!-- <bean id="springContext" class="com.blwx.idea.context.bean.SpringContext" scope="singleton"></bean>   -->
+	
+	<!-- 配置普通JavaBean 非单例模式，用于直接创建Bean对象-->
+	<bean id="date" class="java.util.Date" scope="prototype"></bean>
+	<!-- 配置simpleDateFormat为单例模式 -->
+	<bean id="dateTimeFormat" class="java.text.SimpleDateFormat" scope="singleton">
+		<constructor-arg value="yyyy-MM-dd HH:mm:ss"/>
+	</bean>
+	<bean id="dateFormat" class="java.text.SimpleDateFormat" scope="singleton">
+		<constructor-arg value="yyyy-MM-dd"/>
+	</bean>
+	
+</beans>
