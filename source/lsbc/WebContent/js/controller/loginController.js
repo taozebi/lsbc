@@ -12,8 +12,11 @@ $scope.login = {
 	};
 	$scope.submit = function(){
 		request.get('/userInfo/login.action',$scope.login,function(data){
-			alert(data);
+			if(data.status == '0'){
+				$state.go('main.storage.content', {}, {reload: true});
+			}else{
+				alert('登录失败');
+			}
 		});
-		//$state.go('main.storage.content', {}, {reload: true});
 	};
 }]);

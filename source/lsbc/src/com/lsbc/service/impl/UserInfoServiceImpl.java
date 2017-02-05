@@ -29,15 +29,15 @@ public class UserInfoServiceImpl implements UserInfoService{
 			UserInfo find = userInfoMapper.getUserInfo(user);
 			if(null != find && user.getPassword().equals(find.getPassword())){
 				//登录成功
-				map.put(Constant.STATUS, 0);
+				map.put(Constant.STATUS, Constant.SUCCESS);
 				map.put(Constant.DATA, find);
 			}else{
 				//查询失败
-				map.put(Constant.STATUS, 1);
+				map.put(Constant.STATUS, Constant.FAIL);
 			}
 		}else{
 			//输入信息不完整
-			map.put(Constant.STATUS, 1);
+			map.put(Constant.STATUS, Constant.FAIL);
 		}
 		return map;
 	}
