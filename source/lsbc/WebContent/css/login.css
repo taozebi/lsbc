@@ -59,7 +59,11 @@ body{
 	top: 50%;
 	margin-left: -490px;
 	margin-top: -50px !important;
-	color: white;
+	color: #fff;
+	font-size:50px;
+	font-family: KaiTi ;
+	font-weight:bold;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 .login-from{
 	width: 270px;

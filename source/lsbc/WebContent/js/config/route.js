@@ -105,5 +105,70 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		        ]);
 		    }]
 		}
+	}).state('main.system.adduser', {
+		url: '/adduser',
+		views:{
+			'sense@main':{
+				templateUrl:"page/system/addUser.html",
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
+	}).state('main.system.userlist', {
+		url: '/userlist',
+		views:{
+			'sense@main':{
+				templateUrl:"page/system/userList.html",
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
+	}).state('main.system.addgoods', {
+		url: '/addgoods',
+		views:{
+			'sense@main':{
+				templateUrl:"page/system/addGoods.html",
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
+	}).state('main.system.goodslist', {
+		url: '/goodslist',
+		views:{
+			'sense@main':{
+				templateUrl:"page/system/goodsList.html",
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
+	}).state('main.system.warnset', {
+		url: '/warnset',
+		views:{
+			'sense@main':{
+				templateUrl:"page/system/warnSet.html",
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
 	});
 }]);

@@ -3,7 +3,7 @@ app.controller("mainController",['$scope','$state','nav',function($scope,$state,
 	$scope.headerList = [{state:'main.storage.content'},
 						{state:'main.delivery.content'},
 						{state:'main.finance.content'},
-						{state:'main.system.content'}];
+						{state:'main.system.adduser'}];
 	$scope.headerReset = function(){
 		for (var i = 0; i < $scope.headerList.length; i++) {
 			$scope.headerList[i].active = false;
@@ -26,7 +26,8 @@ app.controller("mainController",['$scope','$state','nav',function($scope,$state,
 		'0':[{state:'main.storage.content'},{state:'main.storage.content'}],
 		'1':[{state:'main.delivery.content'},{state:'main.delivery.content'}],
 		'2':[{state:'main.finance.content'},{state:'main.finance.content'}],
-		'3':[{state:'main.system.content'},{state:'main.system.content'}]
+		'3':[{state:'main.system.adduser'},{state:'main.system.userlist'},{state:'main.system.addgoods'},
+			{state:'main.system.goodslist'},{state:'main.system.warnset'}]
 	};
 	
 	$scope.subList = $scope.subMap[nav.get()];
