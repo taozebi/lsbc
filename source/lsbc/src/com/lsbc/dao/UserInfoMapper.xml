@@ -11,7 +11,7 @@
 			 address AS address,
 			 sex AS sex,
 			 role_id AS roleId
-		FROM UserInfo
+		FROM ls_user_info
 		WHERE 1=1 
 			 <if test="username!=null and username!=''">
 			   and username LIKE CONCAT(CONCAT('%', #{username}),'%')
@@ -41,7 +41,7 @@
 	 </select>
 
 	 <select id="findPageCount" resultType="java.lang.Integer" parameterType="UserInfo">
-		 SELECT count(1) FROM UserInfo
+		 SELECT count(1) FROM ls_user_info
 		 WHERE 1=1 
 			 <if test="username!=null and username!=''">
 			   and username LIKE CONCAT(CONCAT('%', #{username}),'%')
@@ -67,17 +67,17 @@
 	 </select>
 
 	 <insert id="addUserInfo" parameterType="UserInfo">
-		 INSERT INTO UserInfo(username,password,realname,phone,address,sex,role_id)
+		 INSERT INTO ls_user_info(username,password,realname,phone,address,sex,role_id)
 		 VALUES (#{username},#{password},#{realname},#{phone},#{address},#{sex},#{roleId})
 	 </insert>
 
 	 <update id="updateUserInfo" parameterType="UserInfo">
-		 UPDATE UserInfo SET username= #{username},password= #{password},realname= #{realname},phone= #{phone},address= #{address},sex= #{sex},role_id= #{roleId}
+		 UPDATE ls_user_info SET username= #{username},password= #{password},realname= #{realname},phone= #{phone},address= #{address},sex= #{sex},role_id= #{roleId}
 		 WHERE id = #{id}
 	 </update>
 
 	 <delete id="delUserInfo" parameterType="UserInfo">
-		 DELETE FROM UserInfo
+		 DELETE FROM ls_user_info
 		 WHERE 1=1 
 			 <if test="username!=null">
 			 and username= #{username}
@@ -115,7 +115,7 @@
 			 address AS address,
 			 sex AS sex,
 			 role_id AS roleId
-		FROM UserInfo
+		FROM ls_user_info
 		WHERE 1=1 
 			 <if test="username!=null">
 			 and username= #{username}
@@ -144,4 +144,3 @@
 	 </select>
 
 </mapper>
-
