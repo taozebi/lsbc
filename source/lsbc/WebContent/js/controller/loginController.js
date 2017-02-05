@@ -1,4 +1,4 @@
-app.controller("loginController",['$scope','$state','request',function($scope,$state,request){
+app.controller("loginController",['$scope','$state','request','dialog',function($scope,$state,request,dialog){
 
 $scope.login = {
 		username:'',
@@ -15,7 +15,7 @@ $scope.login = {
 			if(data.status == '0'){
 				$state.go('main.storage.content', {}, {reload: true});
 			}else{
-				alert('登录失败');
+				dialog.open({});
 			}
 		});
 	};
