@@ -1,0 +1,38 @@
+<div class="login45 tran45">
+	<div class="login45-bg">
+		<div class="login-from">
+			<div class="celltop">
+				
+			</div>
+			<div class="cell">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+					</span>
+					<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入用户名">
+				</div>
+			</div>
+			<div class="cell">
+				<div class="input-group">
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+					</span>
+					<input ng-model="login.password" type="password" maxlength="20" class="form-control" placeholder="请输入密码">
+				</div>
+			</div>
+			<div class="cell">
+				<button ng-click="submit()" type="button" class="btn btn-primary btn-block" ng-class="{false:'disabled notclick',true:''}[checkSubmit()]">系统登录</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="login35 tran35">
+	<div class="login35-bg"></div>
+</div>
+<div class="logo">LOGO</div>
+
+<style>
+	body{
+		background: #337ab7 !important;
+	}
+</style>

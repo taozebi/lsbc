@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.lsbc.dao.OrderTypeMapper">
+	 <select id="findOrderTypeByPage" resultType="OrderType" parameterType="OrderType">
+		 SELECT 
+			 id,
+			 order_type_name AS orderTypeName
+		FROM ls_order_type
+		WHERE 1=1 
+			 <if test="orderTypeName!=null and orderTypeName!=''">
+			   and order_type_name LIKE CONCAT(CONCAT('%', #{orderTypeName}),'%')
+			 </if>
+		<if test="orderField != null and orderField != ''">
+		 order by ${orderField} 
+		</if>
+		limit #{pageSize} offset #{offset}
+	 </select>
+
+	 <select id="findPageCount" resultType="java.lang.Integer" parameterType="OrderType">
+		 SELECT count(1) FROM ls_order_type
+		 WHERE 1=1 
+			 <if test="orderTypeName!=null and orderTypeName!=''">
+			   and order_type_name LIKE CONCAT(CONCAT('%', #{orderTypeName}),'%')
+			 </if>
+	 </select>
+
+	 <insert id="addOrderType" parameterType="OrderType">
+		 INSERT INTO ls_order_type(order_type_name)
+		 VALUES (#{orderTypeName})
+	 </insert>
+
+	 <update id="updateOrderType" parameterType="OrderType">
+		 UPDATE ls_order_type SET order_type_name= #{orderTypeName}
+		 WHERE id = #{id}
+	 </update>
+
+	 <delete id="delOrderType" parameterType="OrderType">
+		 DELETE FROM ls_order_type
+		 WHERE 1=1 
+			 <if test="orderTypeName!=null">
+			 and order_type_name= #{orderTypeName}
+			 </if>
+			 <if test="id!=null">
+			 and id= #{id}
+			 </if>
+	 </delete>
+
+	 <select id="getOrderType" resultType="OrderType" parameterType="OrderType">
+		 SELECT 
+			 id,
+			 order_type_name AS orderTypeName
+		FROM ls_order_type
+		WHERE 1=1 
+			 <if test="orderTypeName!=null">
+			 and order_type_name= #{orderTypeName}
+			 </if>
+			 <if test="id!=null">
+			 and id= #{id}
+			 </if>
+	 </select>
+
+</mapper>
+
