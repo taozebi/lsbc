@@ -5,17 +5,26 @@ $scope.login = {
 		password:''
 	};
 	$scope.checkSubmit = function(){
-		if('' === $scope.login.username || '' === $scope.login.passWord){
+		if('' === $scope.login.username || '' === $scope.login.password){
 			return false;
 		}
 		return true;
 	};
 	$scope.submit = function(){
 		request.get('/userInfo/login.action',$scope.login,function(data){
-			if(data.status == '0'){
-				$state.go('main.storage.content', {}, {reload: true});
+			if(null != data){
+				if(data.status == '0'){
+					$state.go('main.storage.content', {}, {reload: true});
+					return;
+				}else{
+					dialog.info({
+						items : {title:'登录失败',content:'用户名密码错误!',type:'error'}
+					});
+				}
 			}else{
-				dialog.open({});
+				dialog.info({
+					items : {title:'登录失败',content:'连接服务器失败!',type:'error'}
+				});
 			}
 		});
 	};

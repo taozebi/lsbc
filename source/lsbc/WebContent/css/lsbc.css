@@ -1,0 +1,77 @@
+/*信息提示框样式*/
+.modal-dialog-msg{
+	position: absolute !important;
+	width: 400px;
+	height: 146px;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -200px;		
+}
+.modal-dialog-msg > .modal-content{
+	background: rgba(0,0,0,0);
+}
+.dialog-msg-title{
+	height: 34px;
+	line-height: 34px;
+	padding-left: 8px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	/*background: url(../img/title.png);*/
+}
+.title-warn{
+	background: #F0AD4E;
+}
+.title-success{
+	background: #5CB85C;
+}
+.title-error{
+	background: #D9534F;
+}
+.dialog-msg-content{
+	height: 74px;
+	background: #fff;
+}
+.dialog-msg-content-icon{
+	position: relative;
+	margin-left: 9px;
+	text-align: center;
+	font-size: 50px;
+	width: 74px;
+	height: 74px;
+	line-height: 74px;
+}
+.icon-warn{
+	color: #EC971F;
+}
+.icon-success{
+	color: #449D44;
+}
+.icon-error{
+	color: #C9302C;
+}
+.dialog-msg-content-msg{
+	position: relative;
+	margin-top: -62px;
+	margin-left: 103px;
+	width: 286px;
+	height: 50px;
+	line-height: 40px;
+}
+.dialog-msg-bottom{
+	background: #fff;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.dialog-msg-bottom > button{
+	width: 150px;
+	margin-left: 10px;
+	margin-right: 10px;
+}

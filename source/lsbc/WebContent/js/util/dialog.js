@@ -1,16 +1,9 @@
 /*http请求*/
 app.factory("dialog",['$uibModal','$document',function($uibModal,$document){
+	
 	function openDialog(config){
-		config.items = ['item1', 'item2', 'item3'];
-		config.controller = 'ModalInstanceCtrl';
-		config.templateUrl = 'page/dialog/dialogDome.html';
-		config.animation = true;
-		config.success = function(data){
-		};
-		config.fail = function(data){
-		};
 		$uibModal.open({
-	      animation: config.animation,
+	      animation: config.animation || false,
 	      templateUrl: config.templateUrl,
 	      controller: config.controller,
 	      size: config.size,
@@ -22,17 +15,27 @@ app.factory("dialog",['$uibModal','$document',function($uibModal,$document){
 		}).result.then(config.success || function(data){}, config.fail || function(data){});
 	};
 	
+	function openMsg(config){
+		config.size = "dialog-msg";
+		config.templateUrl = 'page/dialog/dialog-msg.html';
+		config.controller = 'dialog-msg';
+		config.animation = false;
+		openDialog(config);
+	};
+	
 	return{
-		open : openDialog
+		open : openDialog,
+		info : openMsg
 	}
 }]);
-app.controller('ModalInstanceCtrl',['$scope','$uibModalInstance','items',function ($scope,$uibModalInstance,items) {
-	$scope.items = items;
-	$scope.selected = {
-			item: $scope.items[0]
-	};
+app.controller('dialog-msg',['$scope','$uibModalInstance','items',function ($scope,$uibModalInstance,items) {
+	
+	$scope.title = items.title;
+	$scope.content = items.content;
+	$scope.type = items.type;
+	
 	$scope.ok = function () {
-		$uibModalInstance.close($scope.selected.item);
+		$uibModalInstance.close('cancel');
 	};
 
 	$scope.cancel = function () {
