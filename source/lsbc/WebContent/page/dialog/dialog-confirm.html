@@ -1,0 +1,18 @@
+<div class="dialog-msg-title" ng-class="{warn:'title-warn',error:'title-error',success:'title-success'}[type]">
+	{{title}}
+</div>
+<div class="dialog-msg-content">
+	<div class="dialog-msg-content-icon" ng-class="{warn:'icon-warn',error:'icon-error',success:'icon-success'}[type]">
+		<span ng-show="type == 'warn'" class="glyphicon glyphicon-question-sign"></span>
+		<span ng-show="type == 'error'" class="glyphicon glyphicon-question-sign"></span>
+		<span ng-show="type == 'success'" class="glyphicon glyphicon-question-sign"></span>
+	</div>
+	<div class="dialog-msg-content-msg" ng-class="{warn:'icon-warn',error:'icon-error',success:'icon-success'}[type]">
+		{{content}}
+	</div>
+</div>
+<div class="dialog-msg-bottom">
+	<button class="btn btn-success btn-sm" type="button" ng-click="ok()">确定</button>
+	<button class="btn btn-warning btn-sm" type="button" ng-click="cancel()">取消</button>
+</div>
+

@@ -1,7 +1,5 @@
 /*http请求*/
-app.factory("request",['$http',function($http){
-	
-	var path = 'http://localhost/lsbc';
+app.factory("request",['$http','dialog','constant',function($http,dialog,constant){
 	
 	function request(jsonR){
 		return $http(jsonR);
@@ -10,7 +8,7 @@ app.factory("request",['$http',function($http){
 	function getJson(action,data,method){
 		action = action.indexOf('/') == 0 ? action : '/' + action;
 		var jsonR = {};
-		jsonR.url = path + action;
+		jsonR.url = constant.server + action;
 		if('POST' == method.toUpperCase()){
 			jsonR.method = 'POST';
 			if(null != data && !('' === data)){
@@ -37,7 +35,9 @@ app.factory("request",['$http',function($http){
 		request(getJson(action,data,'GET')).then(function(response){
 			callBack(response.data);
 		},function(response){
-			callBack(null);
+			dialog.info({
+				items : {title:'系统异常',content:'数据请求失败,请检查服务器是否正常运行!',type:'error'}
+			});
 		});
 	};
 	
