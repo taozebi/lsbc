@@ -54,11 +54,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 				templateUrl:"page/system/system.html"
 			}
 		}
-	}).state('main.storage.content', {
-		url: '/content',
+	}).state('main.storage.addstorage', {
+		url: '/addstorage',
 		views:{
 			'sense@main':{
-				templateUrl:"page/content.html"
+				templateUrl:"page/storage/addStorage.html"
 			}
 		},
 		resolve:{
@@ -67,11 +67,11 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		        ]);
 		    }]
 		}
-	}).state('main.delivery.content', {
-		url: '/content',
+	}).state('main.storage.storagelist', {
+		url: '/storagelist',
 		views:{
 			'sense@main':{
-				templateUrl:"page/content.html"
+				templateUrl:"page/storage/storageList.html"
 			}
 		},
 		resolve:{
@@ -80,11 +80,37 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		        ]);
 		    }]
 		}
-	}).state('main.finance.content', {
-		url: '/content',
+	}).state('main.delivery.adddelivery', {
+		url: '/adddelivery',
 		views:{
 			'sense@main':{
-				templateUrl:"page/content.html",
+				templateUrl:"page/delivery/addDelivery.html"
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
+	}).state('main.delivery.deliverylist', {
+		url: '/deliverylist',
+		views:{
+			'sense@main':{
+				templateUrl:"page/delivery/deliveryList.html"
+			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
+		}
+	}).state('main.finance.addfinance', {
+		url: '/addfinance',
+		views:{
+			'sense@main':{
+				templateUrl:"page/finance/addFinance.html",
 			}
 		},resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
@@ -92,14 +118,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		        ]);
 		    }]
 		}
-	}).state('main.system.content', {
-		url: '/content',
+	}).state('main.finance.financelist', {
+		url: '/financelist',
 		views:{
 			'sense@main':{
-				templateUrl:"page/content.html",
+				templateUrl:"page/finance/financeList.html",
 			}
-		},
-		resolve:{
+		},resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
 		        ]);

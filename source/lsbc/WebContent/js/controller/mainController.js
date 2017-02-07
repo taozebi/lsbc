@@ -1,8 +1,8 @@
-app.controller("mainController",['$scope','$state','nav',function($scope,$state,nav){
+app.controller("mainController",['$scope','$state','nav','$window',function($scope,$state,nav,$window){
 	/*导航条初始化事件*/
-	$scope.headerList = [{state:'main.storage.content'},
-						{state:'main.delivery.content'},
-						{state:'main.finance.content'},
+	$scope.headerList = [{state:'main.storage.addstorage'},
+						{state:'main.delivery.adddelivery'},
+						{state:'main.finance.addfinance'},
 						{state:'main.system.adduser'}];
 	$scope.headerReset = function(){
 		for (var i = 0; i < $scope.headerList.length; i++) {
@@ -19,13 +19,14 @@ app.controller("mainController",['$scope','$state','nav',function($scope,$state,
 		$state.go($scope.headerList[index].state, {}, {reload: true});
 	};
 	$scope.systemExit = function(){
+		$window.sessionStorage.clear();
 		$state.go('login', {}, {reload: true});
 	}
 	
 	$scope.subMap = {
-		'0':[{state:'main.storage.content'},{state:'main.storage.content'}],
-		'1':[{state:'main.delivery.content'},{state:'main.delivery.content'}],
-		'2':[{state:'main.finance.content'},{state:'main.finance.content'}],
+		'0':[{state:'main.storage.addstorage'},{state:'main.storage.storagelist'}],
+		'1':[{state:'main.delivery.adddelivery'},{state:'main.delivery.deliverylist'}],
+		'2':[{state:'main.finance.addfinance'},{state:'main.finance.financelist'}],
 		'3':[{state:'main.system.adduser'},{state:'main.system.userlist'},{state:'main.system.addgoods'},
 			{state:'main.system.goodslist'},{state:'main.system.warnset'}]
 	};

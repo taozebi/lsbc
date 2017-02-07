@@ -11,10 +11,11 @@ $scope.login = {
 		return true;
 	};
 	$scope.submit = function(){
+		//$state.go('main.storage.addstorage', {}, {reload: true});
 		request.get('/userInfo/login.action',$scope.login,function(data){
 			if(null != data){
 				if(data.status == '0'){
-					$state.go('main.storage.content', {}, {reload: true});
+					$state.go('main.storage.addstorage', {}, {reload: true});
 					return;
 				}else{
 					dialog.info({

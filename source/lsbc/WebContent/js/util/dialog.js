@@ -1,5 +1,5 @@
 /*http请求*/
-app.factory("dialog",['$uibModal','$document',function($uibModal,$document){
+app.factory("dialog",['$uibModal',function($uibModal){
 	
 	function openDialog(config){
 		$uibModal.open({
