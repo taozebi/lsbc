@@ -28,5 +28,11 @@ public class UserInfoController {
 		L.info(">>>>>>>>>>>>>>>>>>>login");
 		return userInfoService.login(user);
 	}
+	@RequestMapping("/addUser.action")
+	@ResponseBody
+	public Map<String,Object> addUser(UserInfo user){
+		L.info(">>>>>>>>>>>>>>>>>>>addUser");
+		return userInfoService.addUser(user);
+	}
 	
 }

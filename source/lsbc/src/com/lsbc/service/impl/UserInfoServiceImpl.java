@@ -45,7 +45,28 @@ public class UserInfoServiceImpl implements UserInfoService{
 	@Override
 	public Map<String, Object> modify(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		
+		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
+			//更新用户信息
+			userInfoMapper.updateUserInfo(user);
+			map.put(Constant.STATUS, Constant.SUCCESS);
+		}else{
+			//更新失败,用户名或者密码为空
+			map.put(Constant.STATUS, Constant.FAIL);
+		}
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> addUser(UserInfo user) {
+		Map<String,Object> map =new HashMap<String,Object>();
+		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
+			//添加用户
+			userInfoMapper.addUserInfo(user);
+			map.put(Constant.STATUS, Constant.SUCCESS);
+		}else{
+			//添加失败,用户名或者密码为空
+			map.put(Constant.STATUS, Constant.FAIL);
+		}
 		return map;
 	}
 	
