@@ -17,5 +17,7 @@ public interface UserInfoService {
 	public Map<String,Object> modify(UserInfo user);
 	
 	public Map<String,Object> addUser(UserInfo user);
+	
+	public Map<String,Object> getUserList(UserInfo user);
 
 }

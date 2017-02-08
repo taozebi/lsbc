@@ -59,6 +59,10 @@ public class UserInfoServiceImpl implements UserInfoService{
 	@Override
 	public Map<String, Object> addUser(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
+		UserInfo find = userInfoMapper.getUserInfo(user);
+		if(find != null){
+			map.put(Constant.STATUS, Constant.FAIL);
+		}
 		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
 			//添加用户
 			userInfoMapper.addUserInfo(user);
@@ -67,6 +71,15 @@ public class UserInfoServiceImpl implements UserInfoService{
 			//添加失败,用户名或者密码为空
 			map.put(Constant.STATUS, Constant.FAIL);
 		}
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> getUserList(UserInfo user) {
+		Map<String,Object> map =new HashMap<String,Object>();
+		//添加用户
+		userInfoMapper.findUserInfoByPage(user);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 	

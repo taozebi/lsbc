@@ -1,32 +1,13 @@
 <div class="header">
 	<div class="header-logo">
 		<span class="glyphicon glyphicon-globe"></span>
-		隆饰板材
 	</div>
 	<div class="header-nav">
-		<div class="header-nav-item" ng-click="headerClick(0)" ng-class="{true:'header-nav-item-check',false:''}[headerList[0].active]">
+		<div class="header-nav-item" ng-repeat="header in headerList" ng-click="headerClick($index)" ng-class="{true:'header-nav-item-check',false:''}[headerList[$index].active]">
 			<div class="header-nav-item-icon">
-				<span class="glyphicon glyphicon-cloud-download"></span>
+				<span class="{{header.icon}}"></span>
 			</div>
-			<div  class="header-nav-item-text">出库管理</div>
-		</div>
-		<div class="header-nav-item" ng-click="headerClick(1)" ng-class="{true:'header-nav-item-check',false:''}[headerList[1].active]">
-			<div class="header-nav-item-icon">
-				<span class="glyphicon glyphicon-cloud-upload"></span>
-			</div>
-			<div  class="header-nav-item-text">入库管理</div>
-		</div>
-		<div class="header-nav-item" ng-click="headerClick(2)" ng-class="{true:'header-nav-item-check',false:''}[headerList[2].active]">
-			<div class="header-nav-item-icon">
-				<span class="glyphicon glyphicon-book"></span>
-			</div>
-			<div  class="header-nav-item-text">财务管理</div>
-		</div>
-		<div class="header-nav-item" ng-click="headerClick(3)" ng-class="{true:'header-nav-item-check',false:''}[headerList[3].active]">
-			<div class="header-nav-item-icon">
-				<span class="glyphicon glyphicon-cog"></span>
-			</div>
-			<div  class="header-nav-item-text">系统设置</div>
+			<div class="header-nav-item-text">{{header.name}}</div>
 		</div>
 	</div>
 	<div class="header-tools">
@@ -45,8 +26,25 @@
 	</div>
 </div>
 <div class="bottom">
-	<div class="subnav" ui-view="subnav"></div>
-	<div class="sense" ui-view="sense"></div>
+	<div class="subnav">
+		<div class="subnav-title">
+			<span class="{{checkHeader.icon}}"></span>
+			<span>{{checkHeader.name}}</span>
+		</div>
+		<div class="subnav-choose">
+			<div class="subnav-choose-item" ng-repeat="sub in subList" ng-click="subClick($index)" ng-class="{true:'subnav-choose-item-check',false:''}[subList[$index].active]">
+				<span class="{{sub.icon}}"></span>
+				<span class="subnav-choose-item-text">{{sub.name}}</span>
+			</div>
+		</div>
+	</div>
+	<div class="sense">
+		<div class="sense-title">
+			<span class="{{checkSub.icon}}"></span>
+			<span class="subnav-choose-item-text">{{checkSub.name}}</span>
+		</div>
+		<div ui-view="sense"></div>
+	</div>
 </div>
 <style>
 	body{

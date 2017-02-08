@@ -34,5 +34,16 @@ public class UserInfoController {
 		L.info(">>>>>>>>>>>>>>>>>>>addUser");
 		return userInfoService.addUser(user);
 	}
-	
+	@RequestMapping("/getUserList.action")
+	@ResponseBody
+	public Map<String,Object> getUserList(UserInfo user){
+		L.info(">>>>>>>>>>>>>>>>>>>getUserList");
+		return userInfoService.getUserList(user);
+	}
+	@RequestMapping("/modifyUserInfo.action")
+	@ResponseBody
+	public Map<String,Object> modifyUserInfo(UserInfo user){
+		L.info(">>>>>>>>>>>>>>>>>>>modifyUserInfo");
+		return userInfoService.modify(user);
+	}
 }

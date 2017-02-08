@@ -27,32 +27,27 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
             }]
 		}
 	}).state('main.storage',{
-		url: '/storage',
-		views:{
-			'subnav@main':{
-				templateUrl:'page/storage/storage.html'
-			}
-		}
+		url: '/storage'
 	}).state('main.delivery',{
-		url: '/delivery',
-		views:{
-			'subnav@main':{
-				templateUrl:"page/delivery/delivery.html"
-			}
-		}
+		url: '/delivery'
 	}).state('main.finance',{
-		url: '/finance',
-		views:{
-			'subnav@main':{
-				templateUrl:"page/finance/finance.html"
-			}
-		}
+		url: '/finance'
 	}).state('main.system',{
-		url: '/system',
+		url: '/system'
+	}).state('main.stock',{
+		url: '/stock'
+	}).state('main.stock.stocklist', {
+		url: '/stocklist',
 		views:{
-			'subnav@main':{
-				templateUrl:"page/system/system.html"
+			'sense@main':{
+				templateUrl:"page/stock/stockList.html"
 			}
+		},
+		resolve:{
+			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
+		        return $ocLazyLoad.load([
+		        ]);
+		    }]
 		}
 	}).state('main.storage.addstorage', {
 		url: '/addstorage',

@@ -1,4 +1,4 @@
-/*http请求*/
+/*对话框*/
 app.factory("dialog",['$uibModal',function($uibModal){
 	
 	function openDialog(config){

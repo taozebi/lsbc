@@ -1,4 +1,4 @@
-app.controller("loginController",['$scope','$state','request','dialog',function($scope,$state,request,dialog){
+app.controller("loginController",['$scope','$state','request','dialog','power',function($scope,$state,request,dialog,power){
 
 $scope.login = {
 		username:'',
@@ -11,16 +11,16 @@ $scope.login = {
 		return true;
 	};
 	$scope.submit = function(){
-		//$state.go('main.storage.addstorage', {}, {reload: true});
-		request.get('/userInfo/login.action',$scope.login,function(data){
+		$state.go(power.boss[0].state, {}, {reload: true});
+		/*request.get('/userInfo/login.action',$scope.login,function(data){
 			if(data.status == '0'){
-				$state.go('main.storage.addstorage', {}, {reload: true});
+				$state.go(power.boss[0].state, {}, {reload: true});
 				return;
 			}else{
 				dialog.info({
 					items : {title:'登录失败',content:'用户名密码错误!',type:'warn'}
 				});
 			}
-		});
+		});*/
 	};
 }]);

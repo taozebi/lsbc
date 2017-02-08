@@ -169,7 +169,7 @@ body{
 	border-right: 1px solid #CCC;
 }
 .sense table tr:nth-child(odd){
-	background-color: #F6F6F6;
+	background-color: #F0F0F0;
 }
 .sense table tr:nth-child(even){
 	background-color: #FFF;
@@ -190,4 +190,38 @@ body{
 }
 .sense table tr td:last-child{
 	border-right: 0px !important;
+}
+.table-search{
+	background: url(../img/table-bottom.png);
+	height: 60px;
+}
+.table-header{
+	background: url(../img/table-title.png);
+	height: 30px;
+	text-align: left;
+	padding-left: 8px;
+	padding-right: 8px;
+	border-bottom: 1px solid #BBB;
+}
+.table-header-tools-right{
+	float: right;
+}
+.table-header button{
+	height: 25px !important;
+	margin: 2px 0px 0px 0px !important;
+	padding: 0px 8px 0px 8px !important;
+	font-size: 12px;
+	line-height: 25px !important;
+}
+.table-bottom{
+	background: url(../img/table-bottom.png);
+	height: 36px;
+	line-height: 36px;
+	padding: 0px 8px 0px 8px !important;
+	border-bottom: 1px solid #BBB;
+}
+
+.table-bottom .pagination{
+	float: right;
+	margin-top: 2px !important;
 }
