@@ -28,22 +28,28 @@ public class UserInfoController {
 		L.info(">>>>>>>>>>>>>>>>>>>login");
 		return userInfoService.login(user);
 	}
-	@RequestMapping("/addUser.action")
+	@RequestMapping("/addUserInfo.action")
 	@ResponseBody
-	public Map<String,Object> addUser(UserInfo user){
-		L.info(">>>>>>>>>>>>>>>>>>>addUser");
-		return userInfoService.addUser(user);
+	public Map<String,Object> addUserInfo(UserInfo user){
+		L.info(">>>>>>>>>>>>>>>>>>>addUserInfo");
+		return userInfoService.addUserInfo(user);
 	}
-	@RequestMapping("/getUserList.action")
+	@RequestMapping("/getUserInfoList.action")
 	@ResponseBody
-	public Map<String,Object> getUserList(UserInfo user){
-		L.info(">>>>>>>>>>>>>>>>>>>getUserList");
-		return userInfoService.getUserList(user);
+	public Map<String,Object> getUserInfoList(UserInfo user){
+		L.info(">>>>>>>>>>>>>>>>>>>getUserInfoList");
+		return userInfoService.getUserInfoList(user);
 	}
 	@RequestMapping("/modifyUserInfo.action")
 	@ResponseBody
 	public Map<String,Object> modifyUserInfo(UserInfo user){
 		L.info(">>>>>>>>>>>>>>>>>>>modifyUserInfo");
-		return userInfoService.modify(user);
+		return userInfoService.modifyUserInfo(user);
+	}
+	@RequestMapping("/deleteUserInfo.action")
+	@ResponseBody
+	public Map<String,Object> deleteUserInfo(UserInfo user){
+		L.info(">>>>>>>>>>>>>>>>>>>deleteUserInfo");
+		return userInfoService.deleteUserInfo(user);
 	}
 }

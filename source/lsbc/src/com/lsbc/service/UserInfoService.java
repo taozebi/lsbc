@@ -14,10 +14,12 @@ public interface UserInfoService {
 	 */
 	public Map<String,Object> login(UserInfo user);
 	
-	public Map<String,Object> modify(UserInfo user);
+	public Map<String,Object> modifyUserInfo(UserInfo user);
 	
-	public Map<String,Object> addUser(UserInfo user);
+	public Map<String,Object> addUserInfo(UserInfo user);
 	
-	public Map<String,Object> getUserList(UserInfo user);
+	public Map<String,Object> getUserInfoList(UserInfo user);
+	
+	public Map<String,Object> deleteUserInfo(UserInfo user);
 
 }

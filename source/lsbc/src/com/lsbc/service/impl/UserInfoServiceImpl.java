@@ -43,7 +43,7 @@ public class UserInfoServiceImpl implements UserInfoService{
 	}
 
 	@Override
-	public Map<String, Object> modify(UserInfo user) {
+	public Map<String, Object> modifyUserInfo(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
 			//更新用户信息
@@ -57,7 +57,7 @@ public class UserInfoServiceImpl implements UserInfoService{
 	}
 
 	@Override
-	public Map<String, Object> addUser(UserInfo user) {
+	public Map<String, Object> addUserInfo(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		UserInfo find = userInfoMapper.getUserInfo(user);
 		if(find != null){
@@ -75,11 +75,25 @@ public class UserInfoServiceImpl implements UserInfoService{
 	}
 
 	@Override
-	public Map<String, Object> getUserList(UserInfo user) {
+	public Map<String, Object> getUserInfoList(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		//添加用户
 		userInfoMapper.findUserInfoByPage(user);
 		map.put(Constant.STATUS, Constant.SUCCESS);
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> deleteUserInfo(UserInfo user) {
+		Map<String,Object> map =new HashMap<String,Object>();
+		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
+			//删除用户
+			userInfoMapper.delUserInfo(user);
+			map.put(Constant.STATUS, Constant.SUCCESS);
+		}else{
+			//删除失败,用户名或者密码为空
+			map.put(Constant.STATUS, Constant.FAIL);
+		}
 		return map;
 	}
 	
