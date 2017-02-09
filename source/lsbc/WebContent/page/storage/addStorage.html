@@ -1,56 +1,56 @@
-<div class="sense-add">
-	<div class="sense-add-row" style="font-size: 20px;">
-		商品信息添加
+<div class="table-header">
+	<span class="table-header-tools-left">
+		客户单位:
+		<input type="text"/>
+		订单类型:
+		<select>
+			<option>零售订单</option>
+			<option>批发订单</option>
+		</select>
+		付款方式:
+		<select>
+			<option>现金支付</option>
+			<option>刷卡支付</option>
+			<option>支付宝支付</option>
+		</select>
+		订单状态:
+		<select>
+			<option>临时订单</option>
+			<option>保存中的订单</option>
+			<option>已完成的订单</option>
+		</select>
+	</span>
+	<div class="table-header-tools-right">
+		<button class="btn btn-default">清空选中项</button>
+		<button class="btn btn-default">保存</button>
+		<button class="btn btn-default">打印</button>
+		<button class="btn btn-default">出库</button>
 	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-user"></span>
-			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入用户名">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-lock"></span>
-			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入密码">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-lock"></span>
-			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请再次确认密码">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-phone"></span>
-			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入联系方式">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-map-marker"></span>
-			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入地址信息">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-star-empty"></span>
-			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请选择角色信息">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<button ng-click="submit()" type="button" class="btn btn-primary btn-block">确认添加</button>
-	</div>
+</div>
+<table>
+	<tr>
+		<td width="3%"><input type="radio" name="check" value="-1"/></td>
+		<td width="10%">商品编号</td>
+		<td width="25%">商品名称</td>
+		<td width="25%">商品品牌</td>
+		<td width="5%">数量</td>
+		<td width="5%">单位</td>
+		<td width="5%">单价</td>
+		<td width="5%">金额</td>
+		<td width="17%">备注</td>
+	</tr>
+	<tr ng-repeat="order in orderList">
+		<td width="3%"><input type="radio" name="check" value="{{$index}}"/></td>
+		<td width="10%" ng-click="chooseGoods()">{{order.id}}</td>
+		<td width="25%">{{order.goodsName}}</td>
+		<td width="25%">{{order.address}}</td>
+		<td width="5%">{{order.number}}</td>
+		<td width="5%">{{order.unit}}</td>
+		<td width="5%">{{order.price}}</td>
+		<td width="5%">{{order.money}}</td>
+		<td width="17%">{{order.remark}}</td>
+	</tr>
+</table>
+<div class="table-bottom text-right" style="border-top:1px solid #BBB;">
+	商品总金额:999.99元,实付金额:888.88元,优惠金额:111.11元
 </div>

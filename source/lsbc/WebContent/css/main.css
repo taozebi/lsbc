@@ -155,29 +155,29 @@ body{
 	margin-top: 20px;
 }
 /*table样式*/
-.sense table{
+table{
 	cursor: default;
 	width: 100%;
 	font-size:12px;
 	border-bottom: 1px solid #DDD;
 }
-.sense table tr{
+table tr{
 	height: 29px;
 }
-.sense table tr td{
+table tr td{
 	padding-left: 5px;
 	border-right: 1px solid #CCC;
 }
-.sense table tr:nth-child(odd){
+table tr:nth-child(odd){
 	background-color: #F0F0F0;
 }
-.sense table tr:nth-child(even){
+table tr:nth-child(even){
 	background-color: #FFF;
 }
-.sense table tr:hover{
+table tr:hover{
 	background-color: #DDD;
 }
-.sense table tr:first-child{
+table tr:first-child{
 	height: 30px;
 	color: #292929;
 	font-weight:bold;
@@ -188,7 +188,7 @@ body{
 .table-warn{
 	background-color: #D9534F !important;
 }
-.sense table tr td:last-child{
+table tr td:last-child{
 	border-right: 0px !important;
 }
 .table-search{
@@ -202,6 +202,18 @@ body{
 	padding-left: 8px;
 	padding-right: 8px;
 	border-bottom: 1px solid #BBB;
+}
+.table-header-tools-left{
+	display: inline-block;
+	margin-top: 2px;
+}
+.table-header-tools-left input[text='input']{
+	height: 24px;
+	width: 150px;
+}
+.table-header-tools-left select{
+	height: 24px;
+	width: 100px;
 }
 .table-header-tools-right{
 	float: right;
@@ -220,7 +232,10 @@ body{
 	padding: 0px 8px 0px 8px !important;
 	border-bottom: 1px solid #BBB;
 }
-
+.text-right{
+	text-align: right;
+	font-weight: bold;
+}
 .table-bottom .pagination{
 	float: right;
 	margin-top: 2px !important;

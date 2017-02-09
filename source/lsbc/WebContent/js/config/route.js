@@ -22,6 +22,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 return $ocLazyLoad.load([
                 	'css/main.css',
                 	'js/service/navService.js',
+                	'js/util/datepicker.js',
                 	'js/controller/mainController.js'
                 ]);
             }]
@@ -53,12 +54,15 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/addstorage',
 		views:{
 			'sense@main':{
+				controller:"newStorageController",
 				templateUrl:"page/storage/addStorage.html"
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/searchGoodsController.js',
+		        	'js/controller/storage/newStorageController.js'
 		        ]);
 		    }]
 		}
