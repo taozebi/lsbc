@@ -40,8 +40,17 @@ app.controller("mainController",['$scope','$state','nav','$window','power','dial
 	};
 	
 	$scope.open = function(){
-		dialog.confirm({
-			items : {title:'数据筛选',content:'在这里输入查询条件',type:'success'}
+		dialog.open({
+			templateUrl : 'page/dialog/dialog-search.html',
+			controller : 'searchController',
+			size : 'search',
+			items : {},
+			success : function(data){
+				
+			},
+			fail : function(data){
+				
+			}
 		});
 	};
 }]);

@@ -3,15 +3,17 @@ app.factory("dialog",['$uibModal',function($uibModal){
 	
 	function openDialog(config){
 		$uibModal.open({
-	      animation: config.animation || false,
-	      templateUrl: config.templateUrl,
-	      controller: config.controller,
-	      size: config.size,
-	      resolve: {
-	    	  items: function () {
-	    		  return config.items;
-	    	  }
-	      }
+			keyboard:false,
+			backdrop:'static',
+	    	animation: config.animation || false,
+	    	templateUrl: config.templateUrl,
+	    	controller: config.controller,
+	    	size: config.size,
+	    	resolve: {
+	    		items: function () {
+	    			return config.items;
+	    		}
+	    	}
 		}).result.then(config.success || function(data){}, config.fail || function(data){});
 	};
 	

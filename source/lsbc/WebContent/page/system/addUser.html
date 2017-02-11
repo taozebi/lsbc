@@ -1,13 +1,13 @@
 <div class="sense-add">
 	<div class="sense-add-row" style="font-size: 20px;">
-		用户信息添加
+		用户信息录入
 	</div>
 	<div class="sense-add-row">
 		<div class="input-group">
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-user"></span>
 			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入用户名">
+			<input ng-model="regist.username" type="text" maxlength="20" class="form-control" placeholder="请输入用户名">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -15,7 +15,7 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-lock"></span>
 			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入密码">
+			<input ng-model="regist.password" type="password" maxlength="20" class="form-control" placeholder="请输入密码">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -23,7 +23,7 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-lock"></span>
 			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请再次确认密码">
+			<input ng-model="repassword" type="password" maxlength="20" class="form-control" placeholder="请再次确认密码">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -31,7 +31,7 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-phone"></span>
 			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入联系方式">
+			<input ng-model="regist.iphone" type="text" maxlength="20" class="form-control" placeholder="请输入联系方式">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -39,7 +39,7 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-map-marker"></span>
 			</span>
-			<input ng-model="login.username" type="text" maxlength="20" class="form-control" placeholder="请输入地址信息">
+			<input ng-model="regist.address" type="text" maxlength="20" class="form-control" placeholder="请输入地址信息">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -47,15 +47,15 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-star-empty"></span>
 			</span>
-			<select class="form-control">
-			  <option>请选择角色信息</option>
-			  <option>管理员</option>
-			  <option>普通用户</option>
+			<select ng-model="regist.role" class="form-control">
+				<option value="">请选择</option>
+				<option value="1">管理员</option>
+				<option value="2">普通用户</option>
 			</select>
 
 		</div>
 	</div>
 	<div class="sense-add-row">
-		<button ng-click="submit()" type="button" class="btn btn-primary btn-block">确认添加</button>
+		<button ng-click="registSubmit()" type="button" class="btn btn-primary btn-block">确认添加</button>
 	</div>
 </div>

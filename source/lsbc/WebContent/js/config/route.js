@@ -23,6 +23,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 	'css/main.css',
                 	'js/service/navService.js',
                 	'js/util/datepicker.js',
+                	'js/controller/dialog/searchController.js',
                 	'js/controller/mainController.js'
                 ]);
             }]
@@ -61,7 +62,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
-		        	'js/controller/searchGoodsController.js',
+		        	'js/controller/dialog/searchGoodsController.js',
 		        	'js/controller/storage/newStorageController.js'
 		        ]);
 		    }]
@@ -83,12 +84,15 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/adddelivery',
 		views:{
 			'sense@main':{
+				controller:"newDeliveryController",
 				templateUrl:"page/delivery/addDelivery.html"
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/dialog/searchGoodsController.js',
+		        	'js/controller/delivery/newDeliveryController.js'
 		        ]);
 		    }]
 		}

@@ -24,9 +24,9 @@ app.constant('power',{
 		]},
 		{state:'main.system.adduser',icon:'glyphicon glyphicon-cog',name:'系统设置',
 		items:[
-			{state:'main.system.adduser',icon:'glyphicon glyphicon-plus',name:'添加用户信息'},
+			{state:'main.system.adduser',icon:'glyphicon glyphicon-plus',name:'用户信息录入'},
 			{state:'main.system.userlist',icon:'glyphicon glyphicon-list-alt',name:'用户信息列表'},
-			{state:'main.system.addgoods',icon:'glyphicon glyphicon-plus',name:'添加商品信息'},
+			{state:'main.system.addgoods',icon:'glyphicon glyphicon-plus',name:'商品信息录入'},
 			{state:'main.system.goodslist',icon:'glyphicon glyphicon-list-alt',name:'商品信息列表'},
 			{state:'main.system.warnset',icon:'glyphicon glyphicon-warning-sign',name:'库存警戒线设置'}
 		]}
