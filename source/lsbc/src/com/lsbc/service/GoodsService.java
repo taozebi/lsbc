@@ -18,7 +18,7 @@ public interface GoodsService {
 	 * @param goods
 	 * @return
 	 */
-	public Map<String,Object> modifyGoods(Goods goods);
+	public Map<String,Object> updateGoods(Goods goods);
 	
 	/**
 	 * 获取某一个商品信息
@@ -39,7 +39,7 @@ public interface GoodsService {
 	 * @param goods
 	 * @return
 	 */
-	public Map<String,Object> deleteGoods(Goods goods);
+	public Map<String,Object> delGoods(Goods goods);
 	
 	
 
