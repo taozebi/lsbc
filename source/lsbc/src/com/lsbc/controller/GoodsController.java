@@ -17,7 +17,7 @@ import com.lsbc.service.GoodsService;
 @RequestMapping("/goods")
 public class GoodsController {
 	
-	private static final Logger L = LoggerFactory.getLogger(UserInfoController.class);
+	private static final Logger L = LoggerFactory.getLogger(GoodsController.class);
 	@Resource
 	private GoodsService goodsService;
 	
