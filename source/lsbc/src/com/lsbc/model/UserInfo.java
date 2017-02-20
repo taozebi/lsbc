@@ -21,10 +21,10 @@ public class UserInfo extends Page{
 	private String address;
 
 	/** 性别  */
-	private String sex;
+	private Integer sex;
 
 	/** 角色id  */
-	private String roleId;
+	private Integer roleId;
 
 	public Long getId() {
 		return id;
@@ -74,19 +74,19 @@ public class UserInfo extends Page{
 		this.address = address;
 	}
 
-	public String getSex() {
+	public Integer getSex() {
 		return sex;
 	}
 
-	public void setSex(String sex) {
+	public void setSex(Integer sex) {
 		this.sex = sex;
 	}
 
-	public String getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(String roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	

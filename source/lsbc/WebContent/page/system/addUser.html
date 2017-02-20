@@ -29,9 +29,30 @@
 	<div class="sense-add-row">
 		<div class="input-group">
 			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-lock"></span>
+			</span>
+			<input ng-model="regist.realname" type="text" maxlength="20" class="form-control" placeholder="请输入真实姓名">
+		</div>
+	</div>
+	<div class="sense-add-row">
+		<div class="input-group">
+			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-phone"></span>
 			</span>
-			<input ng-model="regist.iphone" type="text" maxlength="20" class="form-control" placeholder="请输入联系方式">
+			<input ng-model="regist.phone" type="text" maxlength="20" class="form-control" placeholder="请输入联系方式">
+		</div>
+	</div>
+	<div class="sense-add-row">
+		<div class="input-group">
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-star-empty"></span>
+			</span>
+			<select ng-model="regist.sex" class="form-control" value="性别">
+				<option value="-1">人妖</option>
+				<option value="1">男</option>
+				<option value="2">女</option>
+			</select>
+
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -47,8 +68,8 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-star-empty"></span>
 			</span>
-			<select ng-model="regist.role" class="form-control">
-				<option value="">请选择</option>
+			<select ng-model="regist.roleId" class="form-control">
+				<option value="-1">请选择</option>
 				<option value="1">管理员</option>
 				<option value="2">普通用户</option>
 			</select>

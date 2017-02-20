@@ -137,12 +137,15 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/adduser',
 		views:{
 			'sense@main':{
+				/*加载路由时将加载进来的模板指定一个控制器*/
+				controller:"addUserController",
 				templateUrl:"page/system/addUser.html",
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/system/addUserController.js'/*异步加载controller.js文件*/
 		        ]);
 		    }]
 		}

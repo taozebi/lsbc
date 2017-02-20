@@ -60,10 +60,6 @@ public class UserInfoServiceImpl implements UserInfoService{
 	@Override
 	public Map<String, Object> addUserInfo(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		UserInfo find = userInfoMapper.getUserInfo(user);
-		if(find != null){
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
 		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
 			//添加用户
 			userInfoMapper.addUserInfo(user);

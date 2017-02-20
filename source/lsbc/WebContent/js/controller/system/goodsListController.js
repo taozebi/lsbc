@@ -1,6 +1,6 @@
-app.controller("goodsListController",['$scope','request','dialog',function($scope,request,dialog){
+app.controller("addUserController",['$scope','request','dialog',function($scope,request,dialog){
 	$scope.goodsList = new Array();
-	request.get('/goods/getGoodsList.action',{},function(data){
+	request.get('/userInfo/addUserInfo.action',{},function(data){
 		if(data.status == '0'){
 			//data是一个list集合
 			$scope.goodsList = data.data;
