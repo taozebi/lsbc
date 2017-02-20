@@ -2,7 +2,6 @@ package com.lsbc.service;
 
 import java.util.Map;
 
-import com.lsbc.model.Order;
 import com.lsbc.model.OrderList;
 
 public interface OrderListService {
