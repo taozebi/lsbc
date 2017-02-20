@@ -1,6 +1,7 @@
 package com.lsbc.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -43,7 +44,7 @@ public class UserInfoServiceImpl implements UserInfoService{
 	}
 
 	@Override
-	public Map<String, Object> modifyUserInfo(UserInfo user) {
+	public Map<String, Object> updateUserInfo(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
 			//更新用户信息
@@ -78,8 +79,13 @@ public class UserInfoServiceImpl implements UserInfoService{
 	public Map<String, Object> getUserInfoList(UserInfo user) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		//添加用户
-		userInfoMapper.findUserInfoByPage(user);
-		map.put(Constant.STATUS, Constant.SUCCESS);
+		List<UserInfo> list = userInfoMapper.findUserInfoByPage(user);
+		if(list.size() > 0){
+			map.put(Constant.STATUS, Constant.SUCCESS);
+			map.put(Constant.DATA, list);
+		}else{
+			map.put(Constant.STATUS, Constant.SUCCESS);
+		}
 		return map;
 	}
 
@@ -90,6 +96,21 @@ public class UserInfoServiceImpl implements UserInfoService{
 			//删除用户
 			userInfoMapper.delUserInfo(user);
 			map.put(Constant.STATUS, Constant.SUCCESS);
+		}else{
+			//删除失败,用户名或者密码为空
+			map.put(Constant.STATUS, Constant.FAIL);
+		}
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> getUserInfo(UserInfo user) {
+		Map<String,Object> map =new HashMap<String,Object>();
+		UserInfo userInfo = userInfoMapper.getUserInfo(user);
+		if(userInfo != null){
+			//删除用户
+			map.put(Constant.STATUS, Constant.SUCCESS);
+			map.put(Constant.DATA, userInfo);
 		}else{
 			//删除失败,用户名或者密码为空
 			map.put(Constant.STATUS, Constant.FAIL);

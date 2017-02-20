@@ -1,6 +1,7 @@
 package com.lsbc.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -52,24 +53,11 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public Map<String, Object> getGoods(Goods goods) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(StringUtils.isNotBlank(goods.getGoodsName())){
+		Goods find = goodsMapper.getGoods(goods);
+		if(find != null){
 			//获取商品信息
-			goodsMapper.getGoods(goods);
 			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//获取商品信息失败,商品名为空
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
-		return map;
-	}
-
-	@Override
-	public Map<String, Object> getGoodsList(Goods goods) {
-		Map<String,Object> map =new HashMap<String,Object>();
-		if(StringUtils.isNotBlank(goods.getGoodsName())){
-			//获取商品信息
-			goodsMapper.findGoodsByPage(goods);
-			map.put(Constant.STATUS, Constant.SUCCESS);
+			map.put(Constant.DATA, find);
 		}else{
 			//获取商品信息失败,商品名为空
 			map.put(Constant.STATUS, Constant.FAIL);
@@ -86,6 +74,19 @@ public class GoodsServiceImpl implements GoodsService{
 			map.put(Constant.STATUS, Constant.SUCCESS);
 		}else{
 			//删除商品失败,商品名为空
+			map.put(Constant.STATUS, Constant.FAIL);
+		}
+		return map;
+	}
+	
+	@Override
+	public Map<String, Object> getGoodsList(Goods goods) {
+		Map<String,Object> map =new HashMap<String,Object>();
+		List<Goods> list = goodsMapper.findGoodsByPage(goods);
+		if(list.size()>0){
+			map.put(Constant.STATUS, Constant.SUCCESS);
+			map.put(Constant.DATA, list);
+		}else{
 			map.put(Constant.STATUS, Constant.FAIL);
 		}
 		return map;

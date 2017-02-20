@@ -1,6 +1,7 @@
 package com.lsbc.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -45,6 +46,7 @@ public class OrderServiceImpl implements OrderService{
 		Order find = orderMapper.getOrder(order);
 		if(find != null){
 			map.put(Constant.STATUS, Constant.SUCCESS);
+			map.put(Constant.DATA, find);
 		}else{
 			//添加失败,购买单位为空
 			map.put(Constant.STATUS, Constant.FAIL);
@@ -81,9 +83,10 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public Map<String, Object> getAllOrder(Order order) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(order != null){
-			orderMapper.findOrderByPage(order);
+		List<Order> orders = orderMapper.findOrderByPage(order);
+		if(orders.size()> 0){
 			map.put(Constant.STATUS, Constant.SUCCESS);
+			map.put(Constant.DATA, orders);
 		}else{
 			//添加失败,购买单位为空
 			map.put(Constant.STATUS, Constant.FAIL);
