@@ -8,16 +8,15 @@
 	</div>
 </div>
 <table>
-	<tr><td>GGGGG</td><td>GG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr class="table-warn"><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
+	<tr><td>用户名</td><td>性别</td><td>真实姓名</td><td>联系方式</td><td>地址</td><td>角色</td></tr>
+	<tr ng-repeat="user in userList">
+		<td>{{user.username}}</td>
+		<td>{{user.sex}}</td>
+		<td>{{user.realname}}</td>
+		<td>{{user.phone}}</td>
+		<td>{{user.address}}</td>
+		<td>{{user.roleId}}</td>
+	</tr>
 </table>
 <div class="table-bottom">
 	<ul class="pagination">

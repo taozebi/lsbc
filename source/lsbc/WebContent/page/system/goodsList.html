@@ -8,16 +8,15 @@
 	</div>
 </div>
 <table>
-	<tr><td>GGGGG</td><td>GG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr class="table-warn"><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
+	<tr><td>商品名称</td><td>数量</td><td>售价</td><td>单位</td><td>产地</td><td>厂家</td></tr>
+	<tr ng-repeat="goods in goodsList">
+		<td>{{goods.goodsName}}</td>
+		<td>{{goods.number}}</td>
+		<td>{{goods.outPrice}}</td>
+		<td>{{goods.unit}}</td>
+		<td>{{goods.address}}</td>
+		<td>{{goods.factory}}</td>
+	</tr>
 </table>
 <div class="table-bottom">
 	<ul class="pagination">

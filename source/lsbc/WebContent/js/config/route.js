@@ -150,12 +150,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/userlist',
 		views:{
 			'sense@main':{
-				templateUrl:"page/system/userList.html",
+				controller:"userListController",
+				templateUrl:"page/system/userList.html"
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/system/userListController.js'
 		        ]);
 		    }]
 		}
@@ -176,12 +178,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/goodslist',
 		views:{
 			'sense@main':{
+				controller:"goodsListController",
 				templateUrl:"page/system/goodsList.html",
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/system/goodsListController.js'
 		        ]);
 		    }]
 		}

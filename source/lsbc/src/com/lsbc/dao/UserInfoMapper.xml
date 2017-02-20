@@ -34,10 +34,6 @@
 			 <if test="roleId!=null and roleId!=''">
 			   and role_id LIKE CONCAT(CONCAT('%', #{roleId}),'%')
 			 </if>
-		<if test="orderField != null and orderField != ''">
-		 order by ${orderField} 
-		</if>
-		limit #{pageSize} offset #{offset}
 	 </select>
 
 	 <select id="findPageCount" resultType="java.lang.Integer" parameterType="UserInfo">

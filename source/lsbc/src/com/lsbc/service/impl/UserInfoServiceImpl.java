@@ -80,12 +80,8 @@ public class UserInfoServiceImpl implements UserInfoService{
 		Map<String,Object> map =new HashMap<String,Object>();
 		//添加用户
 		List<UserInfo> list = userInfoMapper.findUserInfoByPage(user);
-		if(list.size() > 0){
-			map.put(Constant.STATUS, Constant.SUCCESS);
-			map.put(Constant.DATA, list);
-		}else{
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}
+		map.put(Constant.STATUS, Constant.SUCCESS);
+		map.put(Constant.DATA, list);
 		return map;
 	}
 
