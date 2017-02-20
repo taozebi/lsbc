@@ -27,7 +27,7 @@ public class Goods extends Page{
 	private String unit;
 
 	/** 商品类别id  */
-	private Long goodTypeId;
+	private Long goodsTypeId;
 
 	public Long getId() {
 		return id;
@@ -93,12 +93,12 @@ public class Goods extends Page{
 		this.unit = unit;
 	}
 
-	public Long getGoodTypeId() {
-		return goodTypeId;
+	public Long getGoodsTypeId() {
+		return goodsTypeId;
 	}
 
-	public void setGoodTypeId(Long goodTypeId) {
-		this.goodTypeId = goodTypeId;
+	public void setGoodsTypeId(Long goodsTypeId) {
+		this.goodsTypeId = goodsTypeId;
 	}
 	
 }

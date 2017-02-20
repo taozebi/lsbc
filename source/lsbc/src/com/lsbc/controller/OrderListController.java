@@ -22,8 +22,6 @@ public class OrderListController {
 	@Resource
 	private OrderListService orderListService;
 	
-	@Resource
-	
 	
 	@RequestMapping("/addOrderList.action")
 	@ResponseBody
