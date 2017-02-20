@@ -1,4 +1,4 @@
-app.controller("addUserController",['$scope','request','dialog',function($scope,request,dialog){
+app.controller("goodsListController",['$scope','request','dialog',function($scope,request,dialog){
 	$scope.goodsList = new Array();
 	request.get('/userInfo/addUserInfo.action',{},function(data){
 		if(data.status == '0'){
