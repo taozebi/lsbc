@@ -279,3 +279,17 @@ table tr td:last-child{
 .table-search-goods .t5,.table-search-goods .t6{
 	width: 60px;	
 }
+
+.table-search tr:first-child{
+	display: none;
+}
+.table-search .t1{
+	width: 120px;
+}
+.table-search input[type='text']{
+	width: 100%;
+	height: 100%;
+	outline:none;
+	border: 0px;
+	background: rgba(0,0,0,0);
+}
