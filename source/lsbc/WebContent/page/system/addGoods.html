@@ -5,9 +5,9 @@
 	<div class="sense-add-row">
 		<div class="input-group">
 			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-user"></span>
+				<span class="glyphicon glyphicon-lock"></span>
 			</span>
-			<input ng-model="regist.goodsNo" type="text" maxlength="20" class="form-control" placeholder="请输入用户名">
+			<input ng-model="regist.goodsName" type="text" maxlength="20" class="form-control" placeholder="请输入商品名称">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -15,15 +15,7 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-lock"></span>
 			</span>
-			<input ng-model="regist.goodsName" type="text" maxlength="20" class="form-control" placeholder="请输入密码">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-lock"></span>
-			</span>
-			<input ng-model="regist.address" type="text" maxlength="20" class="form-control" placeholder="请再次确认密码">
+			<input ng-model="regist.address" type="text" maxlength="20" class="form-control" placeholder="请输入商品产地">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -31,15 +23,7 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-phone"></span>
 			</span>
-			<input ng-model="regist.factory" type="text" maxlength="20" class="form-control" placeholder="请输入联系方式">
-		</div>
-	</div>
-	<div class="sense-add-row">
-		<div class="input-group">
-			<span class="input-group-addon">
-				<span class="glyphicon glyphicon-map-marker"></span>
-			</span>
-			<input ng-model="regist.number" type="number" maxlength="20" class="form-control" placeholder="请输入地址信息">
+			<input ng-model="regist.factory" type="text" maxlength="20" class="form-control" placeholder="请输入生产厂家">
 		</div>
 	</div>
 	<div class="sense-add-row">
@@ -47,7 +31,23 @@
 			<span class="input-group-addon">
 				<span class="glyphicon glyphicon-star-empty"></span>
 			</span>
-			<input ng-model="regist.unit" type="text" maxlength="20" class="form-control" placeholder="请选择角色信息">
+			<input ng-model="regist.unit" type="text" maxlength="20" class="form-control" placeholder="请输入商品单位">
+		</div>
+	</div>
+	<div class="sense-add-row">
+		<div class="input-group">
+			<span class="input-group-addon">
+				<span class="glyphicon glyphicon-star-empty"></span>
+			</span>
+			<select ng-model="regist.goodsTypeId" class="form-control">
+				<option value="1" selected = "selected">板材</option>
+				<option value="2">五金</option>
+				<option value="3">门</option>
+				<option value="4">地板</option>
+				<option value="5">方条</option>
+				<option value="6">吊顶</option>
+			</select>
+
 		</div>
 	</div>
 	<div class="sense-add-row">

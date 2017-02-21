@@ -168,12 +168,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/addgoods',
 		views:{
 			'sense@main':{
+				controller:"addGoodsController",
 				templateUrl:"page/system/addGoods.html",
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/system/addGoodsController.js'
 		        ]);
 		    }]
 		}

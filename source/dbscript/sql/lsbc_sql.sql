@@ -37,7 +37,8 @@ INSERT INTO "ls_goods_type" VALUES ('6', '吊顶');
 -- ----------------------------
 CREATE TABLE "ls_order_type" (
 "id"  INTEGER NOT NULL,
-"order_type_name" character varying(20) NOT NULL
+"order_type_name" character varying(20) NOT NULL,
+PRIMARY KEY ("id")
 );
 
 -- ----------------------------
@@ -76,37 +77,38 @@ CREATE TABLE "ls_user_info" (
 "address"  character varying(50) NOT NULL,
 "sex"  INTEGER NOT NULL DEFAULT 0,
 "role_id"  INTEGER NOT NULL,
-CONSTRAINT pk_ls_user_info_id primary key( id)
+PRIMARY KEY ("id")
 );
 
 -- ----------------------------
 -- Records of ls_user_info
 -- ----------------------------
-INSERT INTO "ls_user_info" VALUES ('3', 'zc', '123456', '张成', '15102727731', '湖北省武汉
-市', '0', '1');
+INSERT INTO public.ls_user_info(username,password,realname,phone,address,sex,role_id) VALUES ('zc', '123456', '张成', '15102727731', '湖北省武汉
+市', '1', '1');
+INSERT INTO public.ls_user_info(username,password,realname,phone,address,sex,role_id) VALUES ('lcf', '123456', '李翠芳', '15102727731', '湖北省武汉
+市', '2', '1');
 
 -- ----------------------------
 -- Table structure for "ls_goods"
 -- ----------------------------
-CREATE TABLE "ls_goods" (
+CREATE TABLE ls_goods (
 "id" serial,
 "goods_name"  character varying(30) NOT NULL,
-"in_price"  float,
-"out_price"  float,
+"in_price"  float default 0.0,
+"out_price"  float default 0.0,
 "address"  character varying(30),
 "factory"  character varying(30),
-"number"  Integer,
+"number"  Integer default 0,
 "unit"  character varying(20),
 "goods_type_id"  INTEGER NOT NULL,
-CONSTRAINT pk_ls_goods_id primary key( id)
+PRIMARY KEY ("id")
 );
 
 -- ----------------------------
 -- Records of ls_goods
 -- ----------------------------
-INSERT INTO "ls_goods" VALUES ('1', '铝扣', '2', null, '湖北省武汉市', '武汉鑫鑫五金生产公
-司', '100', '个', '2');
-
+insert into public.ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id) values('三夹板','0','0','湖北省武汉市','武汉世嘉板材有限公司','0','块','1');
+insert into public.ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id) values('小铝扣','0','0','湖北省武汉市','武汉鑫鑫五金有限公司','0','个','2');
 -- ----------------------------
 -- Table structure for "ls_order"
 -- ----------------------------
@@ -133,18 +135,18 @@ INSERT INTO "ls_order" VALUES ('XS-2017-02-03-1143258', '2017-02-03', '宏发零售'
 -- ----------------------------
 CREATE TABLE "ls_order_list" (
 "id" serial,
-"in_order_id"  INTEGER NOT NULL,
+"in_order_id"  character varying(30) NOT NULL,
 "goods_id"  INTEGER NOT NULL,
 "number"  INTEGER NOT NULL,
 "price"  float NOT NULL,
 "money"  float NOT NULL,
-"by_order_id"  INTEGER,
+"by_order_id"  character varying(30),
 "remark"  character varying(100),
-CONSTRAINT pk_ls_order_list_id primary key( id)
+PRIMARY KEY ("id")
 );
 
 -- ----------------------------
 -- Records of ls_order_list
 -- ----------------------------
-INSERT INTO "ls_order_list" VALUES ('1', '1', '1', '11', '2', '22', null, null);
+INSERT INTO public.ls_order_list(in_order_id,goods_id,number,price,money,by_order_id,remark) VALUES ('XS-2017-02-03-1143258', '1', '11', '2', '22', '', '暂无');
 

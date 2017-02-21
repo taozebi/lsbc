@@ -27,7 +27,9 @@ app.factory("request",['$http','dialog','constant',function($http,dialog,constan
 		request(getJson(action,data,'POST')).then(function(response){
 			callBack(response.data);
 		},function(response){
-			callBack(null);
+			dialog.info({
+				items : {title:'系统异常',content:'数据请求失败,请检查服务器是否正常运行!',type:'error'}
+			});
 		});
 	};
 	
