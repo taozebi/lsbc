@@ -8,16 +8,22 @@
 	</div>
 </div>
 <table>
-	<tr><td>GGGGG</td><td>GG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr class="table-warn"><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
+	<tr>
+		<td>订单编号</td>
+		<td>订单日期</td>
+		<td>商家</td>
+		<td>订单类型</td>
+		<td>金额</td>
+		<td>操作人ID</td>
+	</tr>
+	<tr ng-if="orders.length > 0" ng-repeat="order in orders">
+		<td>{{order.id}}</td>
+		<td>{{order.orderDate}}</td>
+		<td>{{order.customer}}</td>
+		<td>{{order.orderType}}</td>
+		<td>{{order.money}}</td>
+		<td>{{order.userId}}</td>
+	</tr>
 </table>
 <div class="table-bottom">
 </div>

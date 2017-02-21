@@ -16,9 +16,9 @@
 			 <if test="customer!=null and customer!=''">
 			   and customer LIKE CONCAT(CONCAT('%', #{customer}),'%')
 			 </if>
-		<if test="orderField != null and orderField != ''">
+		<!-- <if test="orderField != null and orderField != ''">
 		 order by ${orderField} 
-		</if>
+		</if> -->
 		limit #{pageSize} offset #{offset}
 	 </select>
 

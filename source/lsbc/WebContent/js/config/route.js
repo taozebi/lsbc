@@ -73,12 +73,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/storagelist',
 		views:{
 			'sense@main':{
+				controller:'storageListController',
 				templateUrl:"page/storage/storageList.html"
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/storage/storageListController.js'
 		        ]);
 		    }]
 		}
@@ -102,12 +104,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/deliverylist',
 		views:{
 			'sense@main':{
+				controller:"deliveryListController",
 				templateUrl:"page/delivery/deliveryList.html"
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/delivery/deliveryListController.js'
 		        ]);
 		    }]
 		}

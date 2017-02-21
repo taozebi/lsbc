@@ -57,7 +57,7 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public Map<String, Object> updateOrder(Order order) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(order.getId() > -1){
+		if(order.getId().isEmpty()){
 			orderMapper.updateOrder(order);
 			map.put(Constant.STATUS, Constant.SUCCESS);
 		}else{
@@ -70,7 +70,7 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public Map<String, Object> delOrder(Order order) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(order.getId() > -1){
+		if(order.getId().isEmpty()){
 			orderMapper.delOrder(order);
 			map.put(Constant.STATUS, Constant.SUCCESS);
 		}else{
