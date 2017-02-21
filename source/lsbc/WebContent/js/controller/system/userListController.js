@@ -28,7 +28,7 @@ app.controller("userListController",['$scope','request','dialog',function($scope
 			}
 		});*/
 	};
-	$scope.del = new　function(){
+	$scope.del = function(){
 		alert('delete user');
 		/*dialog.info({
 			items : {title:'提示信息',content:'确定删除该用户?',type:'success',success:function(data){

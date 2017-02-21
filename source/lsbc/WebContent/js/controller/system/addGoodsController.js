@@ -1,6 +1,8 @@
 app.controller("addGoodsController",['$scope','request','dialog',function($scope,request,dialog){
 	/*这里存储添加商品的信息*/
-	$scope.regist = {};
+	$scope.regist = {
+			goodsTypeId:'1'
+	};
 	/*注册按钮点击事件*/
 	$scope.submit = function(){
 		request.get('/goods/addGoods.action'/*URL*/,$scope.regist/*参数*/,function(data){
