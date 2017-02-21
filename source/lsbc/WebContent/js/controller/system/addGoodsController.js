@@ -1,7 +1,10 @@
 app.controller("addGoodsController",['$scope','request','dialog',function($scope,request,dialog){
 	/*这里存储添加商品的信息*/
 	$scope.regist = {
-			goodsTypeId:'1'
+			goodsTypeId:'1',
+			inPrice:'0',
+			outPrice:'0',
+			number:'0'
 	};
 	/*注册按钮点击事件*/
 	$scope.submit = function(){

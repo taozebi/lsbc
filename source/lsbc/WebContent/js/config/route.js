@@ -42,12 +42,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/stocklist',
 		views:{
 			'sense@main':{
+				controller:"stockListController",
 				templateUrl:"page/stock/stockList.html"
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/stock/stockListController.js',
 		        ]);
 		    }]
 		}
