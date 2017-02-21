@@ -1,55 +1,42 @@
 <div class="search-goods-title">
-	请选择需要添加的商品
+	商品选择
 </div>
 <div class="dialog-content">
 	<div class="table-header">
 		<span class="table-header-tools-left">
-			商品编号:
-			<input type="text"/>
 			商品名称:
-			<input type="text"/>
+			<input type="text" ng-model="search.goodsName" ng-change="changeName()"/>
 		</span>
 	</div>
-	<div style="max-height: 400px;overflow: auto;">
+	<div style="min-height:400px;max-height: 400px;overflow: auto;">
 		<table class="table-search-goods">
 			<tr>
 				<td class="t1"><input type="checkbox" name="check" value="-1"/></td>
-				<td class="t2">商品编号</td>
-				<td class="t3">名称</td>
-				<td class="t4">品牌</td>
-				<td class="t5">库存</td>
-				<td class="t6">单位</td>
-				<td class="t7">售价</td>
+				<td class="t2">商品名称</td>
+				<td class="t3">产地</td>
+				<td class="t4">厂家</td>
+				<td class="t5">进价</td>
+				<td class="t6">库存</td>
+				<td class="t7">单位</td>
 			</tr>
 			<tr>
 				<td class="t1"><input type="checkbox" name="check" value="-1"/></td>
-				<td class="t2">GGGGG</td>
-				<td class="t3">2.5</td>
-				<td class="t4">GGGGG</td>
-				<td class="t5">GGGGG</td>
-				<td class="t6">GGGGG</td>
-				<td class="t7">GGGGG</td>
+				<td class="t2"></td>
+				<td class="t3"></td>
+				<td class="t4"></td>
+				<td class="t5"></td>
+				<td class="t6"></td>
+				<td class="t7"></td>
 			</tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-			<tr><td><input type="checkbox" name="check" value="-1"/></td><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
+			<tr ng-repeat="goods in goodsList" ng-click="chooseGoods(goods)">
+				<td><input type="checkbox" ng-checked="checkChoose(goods)"/></td>
+				<td>{{goods.goodsName}}</td>
+				<td>{{goods.address}}</td>
+				<td>{{goods.factory}}</td>
+				<td>{{goods.outPrice}}</td>
+				<td>{{goods.number}}</td>
+				<td>{{goods.unit}}</td>
+			</tr>
 		</table>
 	</div>
 </div>

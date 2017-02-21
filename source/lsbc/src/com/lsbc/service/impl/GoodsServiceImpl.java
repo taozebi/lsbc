@@ -83,12 +83,8 @@ public class GoodsServiceImpl implements GoodsService{
 	public Map<String, Object> getGoodsList(Goods goods) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		List<Goods> list = goodsMapper.findGoodsByPage(goods);
-		if(list.size()>0){
-			map.put(Constant.STATUS, Constant.SUCCESS);
-			map.put(Constant.DATA, list);
-		}else{
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		map.put(Constant.STATUS, Constant.SUCCESS);
+		map.put(Constant.DATA, list);
 		return map;
 	}
 	
