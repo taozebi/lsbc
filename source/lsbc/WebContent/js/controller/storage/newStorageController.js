@@ -39,6 +39,12 @@ app.controller("newStorageController",['$scope','request','dialog',function($sco
 			$scope.select = index;
 		}
 	};
+	$scope.clearSelect = function(){
+		if($scope.select > -1){
+			$scope.goodsList.splice($scope.select,1);
+			$scope.select = -1;
+		}
+	};
 	$scope.goodsRowMoney = function(goods){
 		if(goods.id != null && goods.id != ''){
 			return goods.price * goods.number;

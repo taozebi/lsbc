@@ -9,7 +9,7 @@
 </div>
 <table>
 	<tr><td>用户名</td><td>性别</td><td>真实姓名</td><td>联系方式</td><td>地址</td><td>角色</td></tr>
-	<tr ng-repeat="user in userList">
+	<tr ng-if="userList.length > 0" ng-repeat="user in userList">
 		<td>{{user.username}}</td>
 		<td>{{user.sex}}</td>
 		<td>{{user.realname}}</td>
@@ -17,15 +17,7 @@
 		<td>{{user.address}}</td>
 		<td>{{user.roleId}}</td>
 	</tr>
+	<tr ng-if="userList.length == 0"><td align="center" colspan="6">抱歉,未找到相关的数据!</td></tr>
 </table>
-<div class="table-bottom">
-	<ul class="pagination">
-	  <li><a href="#">&laquo;</a></li>
-	  <li><a href="#">1</a></li>
-	  <li><a href="#">2</a></li>
-	  <li><a href="#">3</a></li>
-	  <li><a href="#">4</a></li>
-	  <li><a href="#">5</a></li>
-	  <li><a href="#">&raquo;</a></li>
-	</ul>
+<div ng-if="userList.length > 0" class="table-bottom">
 </div>

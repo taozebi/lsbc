@@ -11,7 +11,7 @@ $scope.login = {
 		return true;
 	};
 	$scope.submit = function(){
-		//$state.go(power.boss[0].state, {}, {reload: true});
+		$state.go(power.boss[0].state, {}, {reload: true});
 		request.get('/userInfo/login.action',$scope.login,function(data){
 			if(data.status == '0'){
 				$state.go(power.boss[0].state, {}, {reload: true});

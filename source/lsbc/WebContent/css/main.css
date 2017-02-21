@@ -98,7 +98,6 @@ body{
 	left: 11px;
 	width: 200px;
 	background: #fff;
-	bottom: 11px;
 	border: 1px solid #C0C0C0;
 	-webkit-user-select:none;
     -moz-user-select:none;
@@ -142,7 +141,6 @@ body{
 	right: 11px;
 	left: 222px;
 	background: #fff;
-	bottom: 11px;
 	border: 1px solid #C0C0C0;
 }
 .sense-add{
