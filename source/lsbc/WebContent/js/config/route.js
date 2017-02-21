@@ -115,11 +115,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/addfinance',
 		views:{
 			'sense@main':{
+				controller:"addFinanceController",
 				templateUrl:"page/finance/addFinance.html",
 			}
 		},resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/finance/addFinanceController.js'
 		        ]);
 		    }]
 		}
@@ -127,11 +129,13 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/financelist',
 		views:{
 			'sense@main':{
+				controller:"financeListController",
 				templateUrl:"page/finance/financeList.html",
 			}
 		},resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/finance/financeListController.js'
 		        ]);
 		    }]
 		}
