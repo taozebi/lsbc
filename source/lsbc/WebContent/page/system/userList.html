@@ -1,6 +1,14 @@
 <div class="table-header">
-	<button class="btn btn-default">数据筛选条件</button>
-	<button class="btn btn-default">清除筛选条件</button>
+	<span class="table-header-tools-left">
+		用户名:
+		<input ng-model="search.goodsName" ng-change="searchChange()" type="text"/>
+		角色类型:
+		<select ng-model="search.goodsTypeId" ng-change="searchChange()">
+			<option value="">全部类型</option>
+			<option value="1">管理员</option>
+			<option value="2">普通用户</option>
+		</select>
+	</span>
 	<div class="table-header-tools-right">
 		<button class="btn btn-default" ng-click="add()">添加</button>
 		<button class="btn btn-default" ng-click="modify()">修改</button>
