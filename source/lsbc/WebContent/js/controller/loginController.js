@@ -1,4 +1,4 @@
-app.controller("loginController",['$scope','$state','request','dialog','power',function($scope,$state,request,dialog,power){
+app.controller("loginController",['$scope','$state','request','dialog','power','user',function($scope,$state,request,dialog,power,user){
 
 $scope.login = {
 		username:'',
@@ -15,6 +15,8 @@ $scope.login = {
 		request.get('/userInfo/login.action',$scope.login,function(data){
 			if(data.status == '0'){
 				$state.go(power.boss[0].state, {}, {reload: true});
+				user.set(data.data);
+				alert(user.get().username);
 				return;
 			}else{
 				dialog.info({

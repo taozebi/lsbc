@@ -23,6 +23,7 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
                 	'css/main.css',
                 	'js/service/navService.js',
                 	'js/util/datepicker.js',
+                	'js/util/params.js',
                 	'js/controller/dialog/searchController.js',
                 	'js/controller/mainController.js'
                 ]);

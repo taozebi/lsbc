@@ -22,7 +22,7 @@
 	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList">
 		<td>{{goods.id}}</td>
 		<td>{{goods.goodsName}}</td>
-		<td>{{goods.goodsTypeId}}</td>
+		<td>{{goods.goodsTypeId | params:'goods'}}<!-- {{goods.goodsTypeId}} --></td>
 		<td>{{goods.number}}</td>
 		<td>{{goods.unit}}</td>
 		<td>{{goods.address}}</td>

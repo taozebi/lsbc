@@ -1,12 +1,17 @@
 /*用户信息*/
 app.factory("user",['$window',function($window){
 	
-	function setUser(){
-		
+	function setUser(obj){
+		$window.sessionStorage.setItem('user',JSON.stringify(obj));
 	};
 	
+	function getUser(){
+		return JSON.parse($window.sessionStorage.getItem('user') || '{}');
+	}
+	
 	return {
-		set:setUser
+		set:setUser,
+		get:getUser
 	};
 	
 }]);

@@ -26,6 +26,9 @@
 			 <if test="unit!=null and unit!=''">
 			   and unit LIKE CONCAT(CONCAT('%', #{unit}),'%')
 			 </if>
+			 <if test="goodsTypeId!=null and goodsTypeId!=''">
+			   and goods_type_id = #{goodsTypeId}
+			 </if>
 		<!-- <if test="orderField != null and orderField != ''">
 		 order by ${orderField} 
 		</if> -->
