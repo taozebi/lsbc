@@ -28,6 +28,9 @@ public class Order extends Page{
 
 	/** 操作人ID  */
 	private Long userId;
+	
+	/**商品订单详情*/
+	private List<OrderList> orderLists;
 
 	public String getId() {
 		return id;
@@ -92,5 +95,14 @@ public class Order extends Page{
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+
+	public List<OrderList> getOrderLists() {
+		return orderLists;
+	}
+
+	public void setOrderLists(List<OrderList> orderLists) {
+		this.orderLists = orderLists;
+	}
+	
 }
 

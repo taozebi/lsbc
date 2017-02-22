@@ -1,30 +1,25 @@
+
 <div class="table-header">
 	<span class="table-header-tools-left">
 		客户单位:
-		<input type="text"/>
+		<input ng-model="order.customer" type="text"/>
 		订单类型:
-		<select>
-			<option>零售订单</option>
-			<option>批发订单</option>
+		<select ng-model="order.orderType">
+			<option value='1'>零售订单</option>
+			<option value='2'>批发订单</option>
 		</select>
 		付款方式:
-		<select>
-			<option>现金支付</option>
-			<option>刷卡支付</option>
-			<option>支付宝支付</option>
-		</select>
-		订单状态:
-		<select>
-			<option>临时订单</option>
-			<option>保存中的订单</option>
-			<option>已完成的订单</option>
+		<select ng-model="order.payType">
+			<option value='1'>现金支付</option>
+			<option value='1'>刷卡支付</option>
+			<option value='1'>支付宝支付</option>
 		</select>
 	</span>
 	<div class="table-header-tools-right">
 		<button class="btn btn-default" ng-click="clearSelect()">清空选中项</button>
 		<button class="btn btn-default">保存</button>
 		<button class="btn btn-default">打印</button>
-		<button class="btn btn-default">出库</button>
+		<button class="btn btn-default" ng-click="addOrder()">出库</button>
 	</div>
 </div>
 <table>

@@ -8,15 +8,16 @@
 	</div>
 </div>
 <table>
-	<tr><td>GGGGG</td><td>GG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>2.5</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
+	<tr><td>商品编号</td><td>商品名称</td><td>商品种类</td><td>商品库存</td><td>警戒值</td><td>单位</td></tr>
+	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList">
+		<td>{{goods.id}}</td>
+		<td>{{goods.goodsName}}</td>
+		<td>{{goods.goodsTypeId |  params:'goods'}}</td>
+		<td>{{goods.factory}}</td>
+		<td>{{goods.address}}</td>
+		<td>{{goods.unit}}</td>
+	</tr>
 	<tr class="table-warn"><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
-	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
 	<tr><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>
 </table>
 <div class="table-bottom">

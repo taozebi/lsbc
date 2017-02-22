@@ -6,7 +6,7 @@ public class OrderList extends Page{
 	private Long id;
 
 	/** 订单号  */
-	private Long inOrderId;
+	private String inOrderId;
 
 	/** 商品id  */
 	private Long goodsId;
@@ -21,7 +21,7 @@ public class OrderList extends Page{
 	private Float money;
 
 	/** 退货单中的来自哪个订单号  */
-	private Long byOrderId;
+	private String byOrderId;
 
 	/** 备注  */
 	private String remark;
@@ -34,11 +34,11 @@ public class OrderList extends Page{
 		this.id = id;
 	}
 
-	public Long getInOrderId() {
+	public String getInOrderId() {
 		return inOrderId;
 	}
 
-	public void setInOrderId(Long inOrderId) {
+	public void setInOrderId(String inOrderId) {
 		this.inOrderId = inOrderId;
 	}
 
@@ -74,11 +74,11 @@ public class OrderList extends Page{
 		this.money = money;
 	}
 
-	public Long getByOrderId() {
+	public String getByOrderId() {
 		return byOrderId;
 	}
 
-	public void setByOrderId(Long byOrderId) {
+	public void setByOrderId(String byOrderId) {
 		this.byOrderId = byOrderId;
 	}
 

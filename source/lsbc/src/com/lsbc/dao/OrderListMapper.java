@@ -22,5 +22,9 @@ public interface OrderListMapper {
 
 	OrderList getOrderList(OrderList OrderList);
 
+	void addGoodsNumber(OrderList orderList);
+	
+	void minusGoodsNumber(OrderList orderList);
+
 }
 

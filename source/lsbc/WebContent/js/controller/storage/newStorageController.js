@@ -68,5 +68,41 @@ app.controller("newStorageController",['$scope','request','dialog',function($sco
 		}
 		return sum;
 	};
+	$scope.order = {
+		payType : '1',
+		orderType : '1'
+	};
+	$scope.addOrder = function(){
+		if($scope.goodsList.length > 1){
+			/*订单信息*/
+			$scope.order.money = $scope.goodMoney_();
+			$scope.order.realMoney = $scope.goodMoney();
+			$scope.order.orderLists = new Array($scope.goodsList.length-1);
+			for(var i = 0; i < $scope.order.orderLists .length;i++){
+				$scope.order.orderLists[i] = {};
+				$scope.order.orderLists[i].goodsId = $scope.goodsList[i].id;
+				$scope.order.orderLists[i].number = parseInt($scope.goodsList[i].number);
+				$scope.order.orderLists[i].price = parseFloat($scope.goodsList[i].outPrice);
+				$scope.order.orderLists[i].money = parseFloat($scope.goodsList[i].price);
+				$scope.order.orderLists[i].remark = $scope.goodsList[i].remark;
+			}
+			request.get('/order/addOrder.action',$scope.order,function(data){
+				if(data.status == '0'){
+					dialog.info({
+						items : {title:'出库成功',content:'操作成功',type:'success'}
+					});
+				}else{
+					dialog.info({
+						items : {title:'添加订单失败',content:'请检查服务器配置!',type:'warn'}
+					});
+				}
+			});
+		}else{
+			//未添加商品信息
+			dialog.info({
+				items : {title:'添加订单失败',content:'未添加任何商品!',type:'warn'}
+			});
+		}
+	};
 	
 }]);

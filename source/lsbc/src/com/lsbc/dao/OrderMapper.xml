@@ -31,8 +31,8 @@
 	 </select>
 
 	 <insert id="addOrder" parameterType="Order">
-		 INSERT INTO ls_order(order_date,customer,money,pay_type,real_money,order_type,user_id)
-		 VALUES (#{orderDate},#{customer},#{money},#{payType},#{realMoney},#{orderType},#{userId})
+		 INSERT INTO ls_order(id,order_date,customer,money,pay_type,real_money,order_type,user_id)
+		 VALUES (#{id},#{orderDate},#{customer},#{money},#{payType},#{realMoney},#{orderType},#{userId})
 	 </insert>
 
 	 <update id="updateOrder" parameterType="Order">

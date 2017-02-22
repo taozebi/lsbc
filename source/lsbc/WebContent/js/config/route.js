@@ -209,12 +209,14 @@ app.config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlR
 		url: '/warnset',
 		views:{
 			'sense@main':{
+				controller:"warnSetController",
 				templateUrl:"page/system/warnSet.html",
 			}
 		},
 		resolve:{
 			loadCustom:["$ocLazyLoad",function($ocLazyLoad){
 		        return $ocLazyLoad.load([
+		        	'js/controller/system/warnSetController.js'
 		        ]);
 		    }]
 		}

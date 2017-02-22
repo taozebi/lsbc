@@ -39,6 +39,15 @@
 		 UPDATE ls_order_list SET in_order_id= #{inOrderId},goods_id= #{goodsId},number= #{number},price= #{price},money= #{money},by_order_id= #{byOrderId},remark= #{remark}
 		 WHERE id = #{id}
 	 </update>
+	 
+	 <update id="addGoodsNumber" parameterType="OrderList">
+		 UPDATE ls_goods SET number = number + #{number}
+		 WHERE id = #{goodsId}
+	 </update>
+	 <update id="minusGoodsNumber" parameterType="OrderList">
+		 UPDATE ls_goods SET number = number - #{number}
+		 WHERE id = #{goodsId}
+	 </update>
 
 	 <delete id="delOrderList" parameterType="OrderList">
 		 DELETE FROM ls_order_list

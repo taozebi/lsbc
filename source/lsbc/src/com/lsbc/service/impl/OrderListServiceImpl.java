@@ -14,36 +14,30 @@ import com.lsbc.model.OrderList;
 import com.lsbc.service.OrderListService;
 import com.lsbc.util.Constant;
 
-
 @Service
 @Transactional
-public class OrderListServiceImpl implements OrderListService{
+public class OrderListServiceImpl implements OrderListService {
 
 	@Resource
 	private OrderListMapper orderListMapper;
 
 	@Override
 	public Map<String, Object> addOrderList(OrderList orderList) {
-		Map<String,Object> map =new HashMap<String,Object>();
-		if(orderList.getByOrderId() > 0){
-			orderListMapper.addOrderList(orderList);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//添加失败
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		orderListMapper.addOrderList(orderList);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 
 	@Override
 	public Map<String, Object> getOrderList(OrderList orderList) {
-		Map<String,Object> map =new HashMap<String,Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		OrderList order = orderListMapper.getOrderList(orderList);
-		if(order != null){
+		if (order != null) {
 			map.put(Constant.STATUS, Constant.SUCCESS);
 			map.put(Constant.DATA, order);
-		}else{
-			//添加失败
+		} else {
+			// 添加失败
 			map.put(Constant.STATUS, Constant.FAIL);
 		}
 		return map;
@@ -51,42 +45,34 @@ public class OrderListServiceImpl implements OrderListService{
 
 	@Override
 	public Map<String, Object> updateOrderList(OrderList orderList) {
-		Map<String,Object> map =new HashMap<String,Object>();
-		if(orderList.getByOrderId() > 0){
-			orderListMapper.updateOrderList(orderList);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//添加失败
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		orderListMapper.updateOrderList(orderList);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 
 	@Override
 	public Map<String, Object> delOrderList(OrderList orderList) {
-		Map<String,Object> map =new HashMap<String,Object>();
-		if(orderList.getByOrderId() > 0){
-			orderListMapper.delOrderList(orderList);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//添加失败
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		orderListMapper.delOrderList(orderList);
+		map.put(Constant.STATUS, Constant.SUCCESS);
+		// 添加失败
+		map.put(Constant.STATUS, Constant.FAIL);
 		return map;
 	}
 
 	@Override
 	public Map<String, Object> getAllOrderList(OrderList orderList) {
-		Map<String,Object> map =new HashMap<String,Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		List<OrderList> list = orderListMapper.findOrderListByPage(orderList);
-		if(list.size() > 0){
+		if (list.size() > 0) {
 			map.put(Constant.STATUS, Constant.SUCCESS);
 			map.put(Constant.DATA, list);
-		}else{
-			//添加失败
+		} else {
+			// 添加失败
 			map.put(Constant.STATUS, Constant.FAIL);
 		}
 		return map;
 	}
-	
+
 }

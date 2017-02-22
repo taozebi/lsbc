@@ -148,7 +148,7 @@
 	<bean id="date" class="java.util.Date" scope="prototype"></bean>
 	<!-- 配置simpleDateFormat为单例模式 -->
 	<bean id="dateTimeFormat" class="java.text.SimpleDateFormat" scope="singleton">
-		<constructor-arg value="yyyy-MM-dd HH:mm:ss"/>
+		<constructor-arg value="yyyyMMdd-HHmmss-SSS"/>
 	</bean>
 	<bean id="dateFormat" class="java.text.SimpleDateFormat" scope="singleton">
 		<constructor-arg value="yyyy-MM-dd"/>
