@@ -1,4 +1,4 @@
-app.controller("newStorageController",['$scope','request','dialog',function($scope,request,dialog){
+app.controller("newStorageController",['$scope','request','dialog','user',function($scope,request,dialog,user){
 	$scope.goodsList = new Array(1);
 	$scope.select = -1;
 	for (var i = 0; i < $scope.goodsList.length; i++) {
@@ -70,7 +70,9 @@ app.controller("newStorageController",['$scope','request','dialog',function($sco
 	};
 	$scope.order = {
 		payType : '1',
-		orderType : '1'
+		orderType : '1',
+		orderDate : new Date(),
+		userId : user.get().id
 	};
 	$scope.addOrder = function(){
 		if($scope.goodsList.length > 1){
@@ -86,7 +88,7 @@ app.controller("newStorageController",['$scope','request','dialog',function($sco
 				$scope.order.orderLists[i].money = parseFloat($scope.goodsList[i].price);
 				$scope.order.orderLists[i].remark = $scope.goodsList[i].remark;
 			}
-			request.get('/order/addOrder.action',$scope.order,function(data){
+			request.post('/order/addOrder.action',$scope.order,function(data){
 				if(data.status == '0'){
 					dialog.info({
 						items : {title:'出库成功',content:'操作成功',type:'success'}

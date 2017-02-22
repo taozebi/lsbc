@@ -7,8 +7,6 @@ app.filter("params",function(){
 			return getOrderType(input);
 		}else if(type == 'pay'){
 			return getPayType(input);
-		}else if(type == 'order'){
-			return getOrderType(input);
 		}else if(type == 'goods'){
 			return getGoodsType(input);
 		}else{
@@ -28,13 +26,13 @@ function getRoleName(roleId){
 
 function getOrderType(typeId){
 	if(typeId == 1){
-		return '进货单';
+		return '进货订单';
 	}else if(typeId == 2){
-		return '退货单';
+		return '退货订单';
 	}else if(typeId == 3){
-		return '销售单';
+		return '销售订单';
 	}else if(typeId == 4){
-		return '零售单';
+		return '零售订单';
 	}else{
 		return '其他';
 	}

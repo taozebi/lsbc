@@ -9,12 +9,10 @@
 		订单类型:
 		<select ng-model="search.goodsTypeId" ng-change="searchChange()">
 			<option value="">全部类型</option>
-			<option value="1">板材</option>
-			<option value="2">五金</option>
-			<option value="3">门</option>
-			<option value="4">地板</option>
-			<option value="5">方条</option>
-			<option value="6">吊顶</option>
+			<option value="1">进货订单</option>
+			<option value="2">退货订单</option>
+			<option value="3">销售订单</option>
+			<option value="4">零售订单</option>
 		</select>
 	</span>
 	<div class="table-header-tools-right">
@@ -24,19 +22,19 @@
 <table>
 	<tr>
 		<td>订单编号</td>
-		<td>订单日期</td>
 		<td>商家</td>
 		<td>订单类型</td>
 		<td>金额</td>
 		<td>操作人ID</td>
+		<td>订单日期</td>
 	</tr>
 	<tr ng-if="orders.length > 0" ng-repeat="order in orders">
 		<td>{{order.id}}</td>
-		<td>{{order.orderDate}}</td>
 		<td>{{order.customer}}</td>
-		<td>{{order.orderType}}</td>
+		<td>{{order.orderType | params:'order'}}</td>
 		<td>{{order.money}}</td>
 		<td>{{order.userId}}</td>
+		<td>{{order.orderDate}}</td>
 	</tr>
 </table>
 <div class="table-bottom">
