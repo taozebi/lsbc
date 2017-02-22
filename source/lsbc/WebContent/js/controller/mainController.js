@@ -1,6 +1,6 @@
-app.controller("mainController",['$scope','$state','nav','$window','power','dialog',function($scope,$state,nav,$window,power,dialog){
+app.controller("mainController",['$scope','$state','nav','$window','power','dialog','user',function($scope,$state,nav,$window,power,dialog,user){
 	/*导航条初始化事件*/
-	$scope.headerList = power.boss;
+	$scope.headerList = user.get().roleId === 1 ? power.boss : power.staff;
 	$scope.headerReset = function(){
 		for (var i = 0; i < $scope.headerList.length; i++) {
 			$scope.headerList[i].active = false;

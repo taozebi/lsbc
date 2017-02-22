@@ -1,6 +1,7 @@
 package com.lsbc.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order extends Page{
 
@@ -91,6 +92,5 @@ public class Order extends Page{
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-
 }
 

@@ -16,7 +16,6 @@ $scope.login = {
 			if(data.status == '0'){
 				$state.go(power.boss[0].state, {}, {reload: true});
 				user.set(data.data);
-				alert(user.get().username);
 				return;
 			}else{
 				dialog.info({
