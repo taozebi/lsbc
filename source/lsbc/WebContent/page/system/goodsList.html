@@ -14,15 +14,15 @@
 		</select>
 	</span>
 	<div class="table-header-tools-right">
-		<button class="btn btn-default">清除筛选条件</button>
-		<button class="btn btn-default">添加</button>
-		<button class="btn btn-default">修改</button>
-		<button class="btn btn-default">删除</button>
+		<button class="btn btn-default" ng-click="resetSearch()">清除筛选条件</button>
+		<button class="btn btn-default" ng-click="add()">添加</button>
+		<button class="btn btn-default" ng-click="modify()">修改</button>
+		<button class="btn btn-default" ng-click="del()">删除</button>
 	</div>
 </div>
 <table>
 	<tr><td>商品编号</td><td>商品名称</td><td>商品种类</td><td>厂家</td><td>产地</td><td>单位</td></tr>
-	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList">
+	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList" ng-click="chooseGoods(goods)" ng-class="{true:'choose'}[goodsChoose.id == goods.id]">
 		<td>{{goods.id}}</td>
 		<td>{{goods.goodsName}}</td>
 		<td>{{goods.goodsTypeId |  params:'goods'}}</td>

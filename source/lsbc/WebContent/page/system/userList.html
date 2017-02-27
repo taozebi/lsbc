@@ -1,15 +1,20 @@
 <div class="table-header">
 	<span class="table-header-tools-left">
 		用户名:
-		<input ng-model="search.goodsName" ng-change="searchChange()" type="text"/>
-		角色类型:
-		<select ng-model="search.goodsTypeId" ng-change="searchChange()">
+		<input ng-model="search.username" ng-change="searchChange()" type="text"/>
+		真实姓名:
+		<input ng-model="search.realname" ng-change="searchChange()" type="text"/>
+		联系方式:
+		<input ng-model="search.phone" ng-change="searchChange()" type="text"/>
+		<!-- 角色类型:
+		<select ng-model="search.roleId" ng-change="searchChange()">
 			<option value="">全部类型</option>
 			<option value="1">管理员</option>
 			<option value="2">普通用户</option>
-		</select>
+		</select> -->
 	</span>
 	<div class="table-header-tools-right">
+		<button class="btn btn-default" ng-click="resetSearch()">清除筛选条件</button>
 		<button class="btn btn-default" ng-click="add()">添加</button>
 		<button class="btn btn-default" ng-click="modify()">修改</button>
 		<button class="btn btn-default" ng-click="del()">删除</button>
@@ -17,7 +22,7 @@
 </div>
 <table>
 	<tr><td>用户名</td><td>性别</td><td>真实姓名</td><td>联系方式</td><td>地址</td><td>角色</td></tr>
-	<tr ng-if="userList.length > 0" ng-repeat="user in userList">
+	<tr ng-if="userList.length > 0" ng-repeat="user in userList" ng-click="chooseUser(user)" ng-class="{true:'choose'}[userChoose.id == user.id]">
 		<td>{{user.username}}</td>
 		<td>{{user.sex}}</td>
 		<td>{{user.realname}}</td>

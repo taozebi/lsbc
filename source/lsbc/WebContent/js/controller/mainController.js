@@ -38,19 +38,4 @@ app.controller("mainController",['$scope','$state','nav','$window','power','dial
 		$window.sessionStorage.clear();
 		$state.go('login', {}, {reload: true});
 	};
-	
-	$scope.open = function(){
-		dialog.open({
-			templateUrl : 'page/dialog/dialog-search.html',
-			controller : 'searchController',
-			size : 'search',
-			items : {},
-			success : function(data){
-				
-			},
-			fail : function(data){
-				
-			}
-		});
-	};
 }]);

@@ -63,7 +63,7 @@ app.controller('dialog-confirm',['$scope','$uibModalInstance','items',function (
 	$scope.type = items.type;
 	
 	$scope.ok = function () {
-		$uibModalInstance.close('cancel');
+		$uibModalInstance.close('ok');
 	};
 
 	$scope.cancel = function () {

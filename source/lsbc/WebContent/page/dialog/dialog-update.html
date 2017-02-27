@@ -1,0 +1,16 @@
+<div class="search-goods-title">
+	{{item.title}}
+</div>
+<div class="dialog-content">
+	<table class="table-search">
+		<tr></tr>
+		<tr ng-repeat="row in item.item">
+			<td class="t1">{{row.name}}</td>
+			<td><input type="text" ng-model="item.data[row.data]"/></td>
+		</tr>
+	</table>
+</div>
+<div class="dialog-msg-bottom">
+	<button class="btn btn-info btn-sm" type="button" ng-click="ok()">确定</button>
+	<button class="btn btn-warning btn-sm" type="button" ng-click="cancel()">取消</button>
+</div>
