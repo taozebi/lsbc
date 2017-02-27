@@ -25,7 +25,7 @@ public class Goods extends Page{
 
 	/** 单位  */
 	private String unit;
-
+	
 	/** 商品类别id  */
 	private Long goodsTypeId;
 

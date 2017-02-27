@@ -1,18 +1,18 @@
 <div class="table-header">
 	<span class="table-header-tools-left">
 		进货单位:
-		<input type="text"/>
+		<input ng-model="order.customer"  type="text"/>
 		订单类型:
-		<select>
-			<option>进货订单</option>
-			<option>退货订单</option>
+		<select ng-model="order.orderType">
+			<option value='1'>进货订单</option>
+			<option value='2'>退货订单</option>
 		</select>
-		<!-- 付款方式:
-		<select>
-			<option>现金支付</option>
-			<option>刷卡支付</option>
-			<option>现金+刷卡</option>
-		</select> -->
+		付款方式:
+		<select ng-model="order.payType">
+			<option value='1'>现金支付</option>
+			<option value='2'>刷卡支付</option>
+			<option value='3'>现金+刷卡</option>
+		</select>
 		订单状态:
 		<select>
 			<option>临时订单</option>
@@ -24,7 +24,7 @@
 		<button class="btn btn-default" ng-click="clearSelect()">清空选中项</button>
 		<button class="btn btn-default">保存</button>
 		<!-- <button class="btn btn-default">打印</button> -->
-		<button class="btn btn-default">入库</button>
+		<button class="btn btn-default" ng-click="addOrder()">入库</button>
 	</div>
 </div>
 <table>
@@ -35,7 +35,7 @@
 		<td width="25%">商品品牌</td>
 		<td width="5%">数量</td>
 		<td width="5%">单位</td>
-		<td width="5%">进价</td>
+		<td width="5%">单价</td>
 		<td width="5%">金额</td>
 		<td width="17%">备注</td>
 	</tr>
@@ -49,12 +49,12 @@
 		</td>
 		<td width="5%">{{goods.unit}}</td>
 		<td width="5%"><!-- {{}} -->
-			<input ng-model="goods.inPrice" type="text" style="width: 100%;border: 0px;background: rgba(0,0,0,0);"/>
+			<input ng-model="goods.price"  type="text" style="width: 100%;border: 0px;background: rgba(0,0,0,0);"/>
 		</td>
 		<td width="5%">{{goodsRowMoney(goods)}}</td>
 		<td width="17%">{{goods.remark}}</td>
 	</tr>
 </table>
 <div class="table-bottom text-right">
-	商品总金额:{{goodMoney()}}元
+	商品总金额:{{goodMoney_()}}元,实付金额:{{goodMoney()}}元,优惠金额:{{goodMoney_()-goodMoney()}}元
 </div>

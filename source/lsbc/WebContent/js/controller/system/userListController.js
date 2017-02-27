@@ -46,7 +46,7 @@ app.controller("userListController",['$scope','request','dialog','$state','nav',
 			size : 'search',
 			items : {
 				title:'用户信息修改',
-				item:[{name:'用户名',data:'username'},{name:'真实姓名',data:'realname'},{name:'联系方式',data:'phone'},{name:'地址',data:'address'}],
+				item:[/*{name:'用户名',data:'username'},*/{name:'真实姓名',data:'realname'},{name:'联系方式',data:'phone'},{name:'地址',data:'address'}],
 				data:$scope.userChoose
 			},
 			success : function(param){

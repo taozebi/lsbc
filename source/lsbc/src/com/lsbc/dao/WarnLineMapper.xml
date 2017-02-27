@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.lsbc.dao.WarnLineMapper">
+	 <select id="findGoodsByPage" resultType="WarnLine" parameterType="WarnLine">
+		 SELECT 
+			 id as id,
+			 goods_id AS goodsId,
+			 warn_line AS warnLine
+		FROM ls_warn_line
+		WHERE 1=1 
+			 <if test="goodsId!=null and goodsId!=''">
+			   and goods_id LIKE CONCAT(CONCAT('%', #{goodsId}),'%')
+			 </if>
+			 <if test="warn_line!=null and warn_line!=''">
+			   and warn_line LIKE CONCAT(CONCAT('%', #{warn_line}),'%')
+			 </if>
+		<!-- <if test="orderField != null and orderField != ''">
+		 order by ${orderField} 
+		</if> -->
+		limit #{pageSize} offset #{offset}
+	 </select>
+
+	 <select id="findPageCount" resultType="java.lang.Integer" parameterType="WarnLine">
+		 SELECT count(1) FROM ls_warn_line
+		 WHERE 1=1 
+			 <if test="goodsId!=null and goodsId!=''">
+			   and goods_id LIKE CONCAT(CONCAT('%', #{goodsId}),'%')
+			 </if>
+			 <if test="warnLine!=null and warnLine!=''">
+			   and warn_line LIKE CONCAT(CONCAT('%', #{warnLine}),'%')
+			 </if>
+	 </select>
+
+	 <insert id="addWarnLine" parameterType="WarnLine">
+		 INSERT INTO ls_warn_line(goods_id,warn_line)
+		 VALUES (#{goodsId},#{warnLine})
+	 </insert>
+
+	 <update id="updateWarnLine" parameterType="WarnLine">
+		 UPDATE ls_warn_line SET goods_id= #{goodsId},warn_line= #{warnLine}
+		 WHERE id = #{id}
+	 </update>
+
+	 <delete id="delWarnLine" parameterType="WarnLine">
+		 DELETE FROM ls_warn_line
+		 WHERE 1=1 
+			 <if test="goodsId!=null">
+			 and goods_id= #{goodsId}
+			 </if>
+			 <if test="inPrice!=null">
+			 and warn_line= #{warnLine}
+			 </if>
+			 <if test="id!=null">
+			 and id= #{id}
+			 </if>
+	 </delete>
+
+	 <select id="getWarnLine" resultType="WarnLine" parameterType="WarnLine">
+		 SELECT 
+			 id,
+			 goods_id AS goodsId,
+			 warn_line AS warnLine
+		FROM ls_warn_line
+		WHERE 1=1 
+			 <if test="goodsId!=null">
+			 and goods_id= #{goodsId}
+			 </if>
+			 <if test="inPrice!=null">
+			 and in_price= #{inPrice}
+			 </if>
+			 <if test="id!=null">
+			 and id= #{id}
+			 </if>
+	 </select>
+
+</mapper>
+

@@ -70,7 +70,7 @@ app.controller("newStorageController",['$scope','request','dialog','user',functi
 	};
 	$scope.order = {
 		payType : '1',
-		orderType : '1',
+		orderType : '3',
 		orderDate : new Date(),
 		userId : user.get().id
 	};
