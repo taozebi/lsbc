@@ -19,7 +19,7 @@
 </div>
 <table>
 	<tr><td>商品编号</td><td>商品名称</td><td>商品种类</td><td>库存</td><td>单位</td><td>产地</td><td>商家</td></tr>
-	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList">
+	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList" ng-class="{'table-warn':goods.number < goods.warnLine}">
 		<td>{{goods.id}}</td>
 		<td>{{goods.goodsName}}</td>
 		<td>{{goods.goodsTypeId | params:'goods'}}<!-- {{goods.goodsTypeId}} --></td>

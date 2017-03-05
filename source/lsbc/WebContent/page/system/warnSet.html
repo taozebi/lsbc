@@ -2,19 +2,19 @@
 	<button class="btn btn-default">数据筛选条件</button>
 	<button class="btn btn-default">清除筛选条件</button>
 	<div class="table-header-tools-right">
-		<button class="btn btn-default">添加</button>
-		<button class="btn btn-default">修改</button>
-		<button class="btn btn-default">删除</button>
+		<button class="btn btn-default"  ng-click="modify()">设置</button>
+		<!-- <button class="btn btn-default">修改</button>
+		<button class="btn btn-default">删除</button> -->
 	</div>
 </div>
 <table>
 	<tr><td>商品编号</td><td>商品名称</td><td>商品种类</td><td>商品库存</td><td>警戒值</td><td>单位</td></tr>
-	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList">
+	<tr ng-if="goodsList.length > 0" ng-repeat="goods in goodsList"  ng-click="chooseGoods(goods)" ng-class="{true:'choose'}[goodsChoose.id == goods.id]">
 		<td>{{goods.id}}</td>
 		<td>{{goods.goodsName}}</td>
 		<td>{{goods.goodsTypeId |  params:'goods'}}</td>
-		<td>{{goods.factory}}</td>
-		<td>{{goods.address}}</td>
+		<td>{{goods.number}}</td>
+		<td>{{goods.warnLine}}</td>
 		<td>{{goods.unit}}</td>
 	</tr>
 	<tr class="table-warn"><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td><td>GGGGG</td></tr>

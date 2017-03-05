@@ -12,5 +12,6 @@ PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"
 		<typeAlias alias="OrderType" type="com.lsbc.model.OrderType"/>
 		<typeAlias alias="Role" type="com.lsbc.model.Role"/>
 		<typeAlias alias="UserInfo" type="com.lsbc.model.UserInfo"/>
+		<typeAlias alias="WarnLine" type="com.lsbc.model.WarnLine"/>
 	</typeAliases>
 </configuration>

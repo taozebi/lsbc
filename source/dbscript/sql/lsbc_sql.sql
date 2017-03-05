@@ -101,14 +101,15 @@ CREATE TABLE ls_goods (
 "number"  Integer default 0,
 "unit"  character varying(20),
 "goods_type_id"  INTEGER NOT NULL,
+"warn_line"  INTEGER  NOT NULL,
 PRIMARY KEY ("id")
 );
 
 -- ----------------------------
 -- Records of ls_goods
 -- ----------------------------
-insert into public.ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id) values('三夹板','0','0','湖北省武汉市','武汉世嘉板材有限公司','0','块','1');
-insert into public.ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id) values('小铝扣','0','0','湖北省武汉市','武汉鑫鑫五金有限公司','0','个','2');
+insert into public.ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id) values('三夹板','0','0','湖北省武汉市','武汉世嘉板材有限公司','0','块','1','10');
+insert into public.ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id) values('小铝扣','0','0','湖北省武汉市','武汉鑫鑫五金有限公司','0','个','2','10');
 -- ----------------------------
 -- Table structure for "ls_order"
 -- ----------------------------

@@ -11,7 +11,8 @@
 			 factory AS factory,
 			 number AS number,
 			 unit AS unit,
-			 goods_type_id AS goodsTypeId
+			 goods_type_id AS goodsTypeId,
+			 warn_line AS warnLine
 		FROM ls_goods
 		WHERE 1=1 
 			 <if test="goodsName!=null and goodsName!=''">
@@ -28,6 +29,9 @@
 			 </if>
 			 <if test="goodsTypeId!=null and goodsTypeId!=''">
 			   and goods_type_id = #{goodsTypeId}
+			 </if>
+			 <if test="warnLine!=null and warnLine!=''">
+			   and warn_line = #{warnLine}
 			 </if>
 		<!-- <if test="orderField != null and orderField != ''">
 		 order by ${orderField} 
@@ -53,12 +57,12 @@
 	 </select>
 
 	 <insert id="addGoods" parameterType="Goods">
-		 INSERT INTO ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id)
-		 VALUES (#{goodsName},#{inPrice},#{outPrice},#{address},#{factory},#{number},#{unit},#{goodsTypeId})
+		 INSERT INTO ls_goods(goods_name,in_price,out_price,address,factory,number,unit,goods_type_id,warn_line)
+		 VALUES (#{goodsName},#{inPrice},#{outPrice},#{address},#{factory},#{number},#{unit},#{goodsTypeId},#{warnLine})
 	 </insert>
 
 	 <update id="updateGoods" parameterType="Goods">
-		 UPDATE ls_goods SET goods_name= #{goodsName},in_price= #{inPrice},out_price= #{outPrice},address= #{address},factory= #{factory},number= #{number},unit= #{unit},goods_type_id= #{goodsTypeId}
+		 UPDATE ls_goods SET goods_name= #{goodsName},in_price= #{inPrice},out_price= #{outPrice},address= #{address},factory= #{factory},number= #{number},unit= #{unit},goods_type_id= #{goodsTypeId},warn_line= #{warnLine}
 		 WHERE id = #{id}
 	 </update>
 
@@ -89,6 +93,9 @@
 			 <if test="goodsTypeId!=null">
 			 and goods_type_id= #{goodsTypeId}
 			 </if>
+			 <if test="warnLine!=null">
+			 and warn_line= #{warnLine}
+			 </if>
 			 <if test="id!=null">
 			 and id= #{id}
 			 </if>
@@ -104,7 +111,8 @@
 			 factory AS factory,
 			 number AS number,
 			 unit AS unit,
-			 goods_type_id AS goodsTypeId
+			 goods_type_id AS goodsTypeId,
+			 warn_line AS warnLine
 		FROM ls_goods
 		WHERE 1=1 
 			 <if test="goodsName!=null">
@@ -130,6 +138,9 @@
 			 </if>
 			 <if test="goodsTypeId!=null">
 			 and goods_type_id= #{goodsTypeId}
+			 </if>
+			 <if test="warnLine!=null">
+			 and warn_line= #{warnLine}
 			 </if>
 			 <if test="id!=null">
 			 and id= #{id}

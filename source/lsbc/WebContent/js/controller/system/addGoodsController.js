@@ -4,7 +4,8 @@ app.controller("addGoodsController",['$scope','request','dialog',function($scope
 			goodsTypeId:'1',
 			inPrice:'0',
 			outPrice:'0',
-			number:'0'
+			number:'0',
+			warnLine:'10'
 	};
 	/*注册按钮点击事件*/
 	$scope.submit = function(){

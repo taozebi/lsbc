@@ -28,6 +28,9 @@ public class Goods extends Page{
 	
 	/** 商品类别id  */
 	private Long goodsTypeId;
+	
+	/** 商品库存警戒线  */
+	private Integer warnLine;
 
 	public Long getId() {
 		return id;
@@ -99,6 +102,14 @@ public class Goods extends Page{
 
 	public void setGoodsTypeId(Long goodsTypeId) {
 		this.goodsTypeId = goodsTypeId;
+	}
+
+	public Integer getWarnLine() {
+		return warnLine;
+	}
+
+	public void setWarnLine(Integer warnLine) {
+		this.warnLine = warnLine;
 	}
 	
 }
