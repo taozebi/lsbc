@@ -152,13 +152,3 @@ PRIMARY KEY ("id")
 INSERT INTO public.ls_order_list(in_order_id,goods_id,number,price,money,by_order_id,remark) VALUES ('XS-201702031143-258', '1', '11', '2', '22', '', 'ÔÝÎÞ');
 
 
--- ----------------------------
--- Table structure for "ls_warn_line"
--- ----------------------------
-CREATE TABLE "ls_warn_line" (
-"id" serial,
-"goods_id"  Integer NOT NULL,
-"warn_line"  INTEGER NOT NULL DEFAULT 0,
-PRIMARY KEY ("id")
-);
-

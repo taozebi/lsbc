@@ -21,8 +21,9 @@
 	</div>
 </div>
 <table>
-	<tr><td>用户名</td><td>性别</td><td>真实姓名</td><td>联系方式</td><td>地址</td><td>角色</td></tr>
-	<tr ng-if="userList.length > 0" ng-repeat="user in userList" ng-click="chooseUser(user)" ng-class="{true:'choose'}[userChoose.id == user.id]">
+	<tr><td>用户编号</td><td>用户名</td><td>性别</td><td>真实姓名</td><td>联系方式</td><td>地址</td><td>角色</td></tr>
+	<tr ng-if="userList.length > 0" ng-repeat="user in userList  | orderBy : 'id'" ng-click="chooseUser(user)" ng-class="{true:'choose'}[userChoose.id == user.id]">
+		<td>{{user.id}}</td>
 		<td>{{user.username}}</td>
 		<td>{{user.sex}}</td>
 		<td>{{user.realname}}</td>

@@ -39,14 +39,8 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public Map<String, Object> updateGoods(Goods goods) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(StringUtils.isNotBlank(goods.getGoodsName())){
-			//修改商品信息
-			goodsMapper.updateGoods(goods);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//修改商品信息失败,商品名为空
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		goodsMapper.updateGoods(goods);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 
@@ -68,14 +62,8 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public Map<String, Object> delGoods(Goods goods) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(StringUtils.isNotBlank(goods.getGoodsName())){
-			//删除商品
-			goodsMapper.delGoods(goods);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//删除商品失败,商品名为空
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		goodsMapper.delGoods(goods);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 	

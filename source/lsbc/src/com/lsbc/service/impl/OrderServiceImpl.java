@@ -78,26 +78,16 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public Map<String, Object> updateOrder(Order order) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(order.getId().isEmpty()){
-			orderMapper.updateOrder(order);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//添加失败,购买单位为空
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		orderMapper.updateOrder(order);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 
 	@Override
 	public Map<String, Object> delOrder(Order order) {
 		Map<String,Object> map =new HashMap<String,Object>();
-		if(order.getId().isEmpty()){
-			orderMapper.delOrder(order);
-			map.put(Constant.STATUS, Constant.SUCCESS);
-		}else{
-			//添加失败,购买单位为空
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		orderMapper.delOrder(order);
+		map.put(Constant.STATUS, Constant.SUCCESS);
 		return map;
 	}
 
@@ -105,13 +95,8 @@ public class OrderServiceImpl implements OrderService{
 	public Map<String, Object> getAllOrder(Order order) {
 		Map<String,Object> map =new HashMap<String,Object>();
 		List<Order> orders = orderMapper.findOrderByPage(order);
-		if(orders.size()> 0){
-			map.put(Constant.STATUS, Constant.SUCCESS);
-			map.put(Constant.DATA, orders);
-		}else{
-			//添加失败,购买单位为空
-			map.put(Constant.STATUS, Constant.FAIL);
-		}
+		map.put(Constant.STATUS, Constant.SUCCESS);
+		map.put(Constant.DATA, orders);
 		return map;
 	}
 	

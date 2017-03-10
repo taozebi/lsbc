@@ -13,8 +13,17 @@
 			 user_id AS userId
 		FROM ls_order
 		WHERE 1=1 
+			 <if test="id!=null and id!=''">
+			   and id = #{id}
+			 </if>
 			 <if test="customer!=null and customer!=''">
 			   and customer LIKE CONCAT(CONCAT('%', #{customer}),'%')
+			 </if>
+			 <if test="userId!=null and userId!=''">
+			    and user_id = #{userId}
+			 </if>
+			 <if test="orderType!=null and orderType!=''">
+			   and order_type = #{orderType}
 			 </if>
 		<!-- <if test="orderField != null and orderField != ''">
 		 order by ${orderField} 
